@@ -57,11 +57,11 @@ export default function HomePage() {
               is intentionally lightweight so it can evolve quickly.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a className="button-primary" href="/work">
-                View work samples
+              <a className="button-primary" href="/#subscribe">
+                Subscribe for updates
               </a>
-              <a className="button-secondary" href="/contact">
-                Contact
+              <a className="button-secondary" href="/work">
+                View work samples
               </a>
             </div>
           </div>

@@ -33,18 +33,26 @@ export default function RootLayout({
                 <a className="nav-link" href="/playbooks">Playbooks</a>
                 <a className="nav-link" href="/writing">Writing</a>
                 <a className="nav-link" href="/about">About</a>
-                <a className="nav-link" href="/contact">Contact</a>
+                <a className="nav-link" href="/#subscribe">Subscribe</a>
               </nav>
             </header>
             <main>{children}</main>
             <footer className="mt-16 flex flex-col gap-2 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
               <p>Practical, resident-centered local government delivery.</p>
               <div className="flex gap-4">
-                <a className="underline-offset-4 hover:underline" href="/contact">
-                  Get in touch
+                <a className="underline-offset-4 hover:underline" href="/#subscribe">
+                  Subscribe
                 </a>
                 <a className="underline-offset-4 hover:underline" href="/about">
                   About Melanie
+                </a>
+                <a
+                  className="underline-offset-4 hover:underline"
+                  href="https://www.linkedin.com"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Connect on LinkedIn
                 </a>
               </div>
             </footer>
