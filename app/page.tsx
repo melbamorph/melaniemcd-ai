@@ -1,15 +1,28 @@
+import Link from 'next/link';
 import { SubscribeCTA } from '@/components/SubscribeCTA';
 
 const focusAreas = [
-  { label: 'AI adoption enablement', detail: 'Helping teams understand when and how to apply emerging tools.' },
-  { label: 'Process modernization', detail: 'Clarifying workflows so service changes stick.' },
-  { label: 'Public transparency', detail: 'Sharing progress openly with residents and staff.' }
+  { 
+    label: 'AI Adoption', 
+    detail: 'Helping teams understand when and how to apply emerging tools responsibly.',
+    icon: '◆'
+  },
+  { 
+    label: 'Process Design', 
+    detail: 'Clarifying workflows so service improvements actually stick.',
+    icon: '◇'
+  },
+  { 
+    label: 'Transparency', 
+    detail: 'Sharing progress openly with residents and stakeholders.',
+    icon: '○'
+  }
 ];
 
 const workHighlights = [
   {
     title: 'Service intake sketch',
-    description: 'Draft concept for simplifying intake questions and handoffs.',
+    description: 'Draft concept for simplifying intake questions and handoffs between departments.',
     tag: 'Draft',
     link: '/work'
   },
@@ -44,89 +57,116 @@ const demoHighlights = [
 
 export default function HomePage() {
   return (
-    <div className="space-y-12">
-      <section className="card p-8">
-        <div className="space-y-6 lg:flex lg:items-center lg:justify-between lg:space-y-0">
-          <div className="max-w-2xl space-y-4">
-            <p className="section-title">Portfolio</p>
-            <h2 className="text-4xl font-semibold text-slate-900 sm:text-5xl">
-              Practical experiments for city services
-            </h2>
-            <p className="text-lg text-slate-700">
-              This is a working space to share in-progress ideas, drafts, and demos focused on local government AI. Each page
-              is intentionally lightweight so it can evolve quickly.
+    <div className="space-y-16">
+      <section className="card p-8 md:p-12">
+        <div className="space-y-8 lg:flex lg:items-start lg:justify-between lg:gap-12 lg:space-y-0">
+          <div className="max-w-2xl space-y-6">
+            <div className="space-y-4">
+              <p className="section-title">Portfolio</p>
+              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                <span className="text-white">Practical AI for </span>
+                <span className="gradient-text">city services</span>
+              </h2>
+            </div>
+            <p className="text-lg leading-relaxed text-muted-300">
+              A working space to share in-progress ideas, drafts, and demos focused on AI adoption in local government. 
+              Each page is intentionally lightweight so it can evolve quickly.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a className="button-primary" href="/#subscribe">
-                Subscribe for updates
-              </a>
-              <a className="button-secondary" href="/work">
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link className="button-primary" href="/contact">
+                Get in touch
+              </Link>
+              <Link className="button-secondary" href="/work">
                 View work samples
-              </a>
+              </Link>
             </div>
           </div>
-          <div className="mt-6 grid w-full max-w-sm grid-cols-1 gap-3 sm:grid-cols-3 lg:mt-0">
-            {focusAreas.map((area) => (
-              <div key={area.label} className="metric-tile">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-sand-600">{area.label}</p>
-                <p className="mt-2 text-sm text-slate-700">{area.detail}</p>
+          
+          <div className="grid w-full max-w-sm gap-4 lg:mt-0">
+            {focusAreas.map((area, index) => (
+              <div 
+                key={area.label} 
+                className="feature-tile glow-accent"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="flex items-start gap-4">
+                  <span className="text-xl text-accent-400">{area.icon}</span>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-accent-400">
+                      {area.label}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-300">{area.detail}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="section-title">Featured work</p>
+      <section className="scroll-fade-in space-y-8">
+        <div className="flex items-end justify-between">
+          <div className="space-y-2">
+            <p className="section-title">Featured Work</p>
             <h3 className="section-heading">Recent drafts</h3>
           </div>
-          <a className="button-secondary" href="/work">
-            See all work
-          </a>
+          <Link className="button-secondary text-sm" href="/work">
+            See all
+          </Link>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {workHighlights.map((item) => (
-            <a
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {workHighlights.map((item, index) => (
+            <Link
               key={item.title}
               href={item.link}
-              className="card block p-6 no-underline outline-none focus-visible:ring-2 focus-visible:ring-sand-400"
+              className="card group block p-6 no-underline"
+              style={{ animationDelay: `${index * 50}ms` }}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand-600">{item.tag}</p>
-              <h4 className="mt-2 text-lg font-semibold text-slate-900">{item.title}</h4>
-              <p className="mt-2 text-sm text-slate-700">{item.description}</p>
-            </a>
+              <span className={`tag ${item.tag === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
+                {item.tag}
+              </span>
+              <h4 className="mt-4 text-lg font-semibold text-white transition-colors group-hover:text-accent-400">
+                {item.title}
+              </h4>
+              <p className="mt-2 text-sm leading-relaxed text-muted-400">{item.description}</p>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
+      <section className="scroll-fade-in space-y-8">
+        <div className="flex items-end justify-between">
+          <div className="space-y-2">
             <p className="section-title">Demos</p>
             <h3 className="section-heading">Sandbox concepts</h3>
           </div>
-          <a className="button-secondary" href="/demos">
-            Explore demos
-          </a>
+          <Link className="button-secondary text-sm" href="/demos">
+            Explore
+          </Link>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {demoHighlights.map((item) => (
-            <a
+        <div className="grid gap-6 sm:grid-cols-2">
+          {demoHighlights.map((item, index) => (
+            <Link
               key={item.title}
               href={item.link}
-              className="card block p-6 no-underline outline-none focus-visible:ring-2 focus-visible:ring-sand-400"
+              className="card group block p-6 no-underline"
+              style={{ animationDelay: `${index * 50}ms` }}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand-600">{item.tag}</p>
-              <h4 className="mt-2 text-lg font-semibold text-slate-900">{item.title}</h4>
-              <p className="mt-2 text-sm text-slate-700">{item.description}</p>
-            </a>
+              <span className={`tag ${item.tag === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
+                {item.tag}
+              </span>
+              <h4 className="mt-4 text-lg font-semibold text-white transition-colors group-hover:text-accent-400">
+                {item.title}
+              </h4>
+              <p className="mt-2 text-sm leading-relaxed text-muted-400">{item.description}</p>
+            </Link>
           ))}
         </div>
       </section>
 
-      <SubscribeCTA />
+      <div className="scroll-fade-in">
+        <SubscribeCTA />
+      </div>
     </div>
   );
 }

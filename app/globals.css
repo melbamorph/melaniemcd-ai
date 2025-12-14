@@ -2,58 +2,273 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Modern CSS: View Transitions API */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out-and-scale-down;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in-and-scale-up;
+}
+
+@keyframes fade-out-and-scale-down {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.98); }
+}
+
+@keyframes fade-in-and-scale-up {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 :root {
-  color-scheme: light;
+  color-scheme: dark;
+  --color-surface: #0a0a0f;
+  --color-surface-elevated: #12121a;
+  --color-accent: #fbbf24;
+  --color-accent-muted: rgba(251, 191, 36, 0.1);
+  --glass-bg: rgba(18, 18, 26, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
+/* Base styles */
 body {
-  background-color: #f9f7f3;
+  background-color: var(--color-surface);
+  background-image: 
+    radial-gradient(ellipse at 20% 0%, rgba(251, 191, 36, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(99, 102, 241, 0.04) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
+/* Modern CSS: Scroll-driven animations */
+@supports (animation-timeline: scroll()) {
+  .scroll-fade-in {
+    animation: scrollFadeIn linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+
+  @keyframes scrollFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline: scroll()) {
+  .scroll-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navigation */
 .nav-link {
-  @apply rounded-full px-3 py-2 transition hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand-500;
+  @apply relative px-3 py-2 text-sm font-medium text-muted-300 transition-all duration-200;
 }
 
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-accent-400 transition-all duration-300;
+}
+
+.nav-link:hover {
+  @apply text-white;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link:focus-visible {
+  @apply outline-none ring-2 ring-accent-400 ring-offset-2 ring-offset-surface-50 rounded-lg;
+}
+
+/* Glassmorphism cards */
 .card {
-  @apply rounded-clay bg-white shadow-clay transition hover:shadow-lg focus-within:shadow-lg;
+  @apply relative rounded-2xl border border-white/[0.08] bg-surface-100/80 backdrop-blur-xl shadow-glass transition-all duration-300;
+}
+
+.card::before {
+  content: '';
+  @apply absolute inset-0 rounded-2xl bg-gradient-to-br from-white/[0.05] to-transparent pointer-events-none;
+}
+
+.card:hover {
+  @apply border-white/[0.12] shadow-glow -translate-y-1;
+}
+
+.card:focus-within {
+  @apply ring-2 ring-accent-400/50 ring-offset-2 ring-offset-surface-50;
 }
 
 .card-muted {
-  @apply bg-sand-50 shadow-clay-sm;
+  @apply rounded-2xl border border-white/[0.05] bg-surface-200/50 backdrop-blur-sm;
 }
 
+/* Section typography */
 .section-title {
-  @apply text-sm font-semibold uppercase tracking-[0.2em] text-sand-600;
+  @apply text-xs font-semibold uppercase tracking-[0.25em] text-accent-400;
 }
 
 .section-heading {
-  @apply text-2xl font-semibold text-slate-900;
+  @apply text-2xl font-semibold text-white sm:text-3xl;
 }
 
+/* Buttons */
 .button-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900;
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent-400 px-6 py-3 text-sm font-semibold text-surface-50 shadow-glow-sm transition-all duration-300;
+}
+
+.button-primary:hover {
+  @apply bg-accent-300 shadow-glow -translate-y-0.5;
+}
+
+.button-primary:focus-visible {
+  @apply outline-none ring-2 ring-accent-400 ring-offset-2 ring-offset-surface-50;
 }
 
 .button-secondary {
-  @apply inline-flex items-center justify-center rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-900 shadow-clay-sm transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/[0.1] bg-surface-200/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300;
 }
 
+.button-secondary:hover {
+  @apply border-white/[0.2] bg-surface-300/50 -translate-y-0.5;
+}
+
+.button-secondary:focus-visible {
+  @apply outline-none ring-2 ring-accent-400 ring-offset-2 ring-offset-surface-50;
+}
+
+/* Form elements */
 input, textarea {
-  @apply rounded-clay border border-sand-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-inner transition focus:border-sand-400 focus:outline-none focus:ring-2 focus:ring-sand-200;
+  @apply w-full rounded-xl border border-white/[0.1] bg-surface-200/50 px-4 py-3 text-sm text-white placeholder-muted-400 backdrop-blur-sm transition-all duration-200;
 }
 
+input:focus, textarea:focus {
+  @apply border-accent-400/50 outline-none ring-2 ring-accent-400/20;
+}
+
+/* Modal */
 .modal-overlay {
-  @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm;
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-surface-50/80 backdrop-blur-md;
 }
 
 .modal-card {
-  @apply card w-full max-w-md p-6;
+  @apply relative rounded-3xl border border-white/[0.1] bg-surface-100/95 p-8 shadow-glass backdrop-blur-xl;
 }
 
-.clay-surface {
-  @apply rounded-clay bg-white shadow-clay;
+.modal-card::before {
+  content: '';
+  @apply absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none;
 }
 
-.metric-tile {
-  @apply card p-5 text-left;
+/* Feature tiles */
+.feature-tile {
+  @apply card p-6;
+}
+
+/* Container queries for responsive components */
+@container (min-width: 400px) {
+  .container-responsive {
+    @apply flex-row gap-6;
+  }
+}
+
+/* Tags/badges */
+.tag {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+}
+
+.tag-draft {
+  @apply bg-accent-400/10 text-accent-400 border border-accent-400/20;
+}
+
+.tag-coming {
+  @apply bg-muted-400/10 text-muted-300 border border-muted-400/20;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-white via-accent-200 to-accent-400 bg-clip-text text-transparent;
+}
+
+/* Subtle grid pattern overlay */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glow effects */
+.glow-accent {
+  @apply relative;
+}
+
+.glow-accent::after {
+  content: '';
+  @apply absolute -inset-px rounded-[inherit] bg-gradient-to-r from-accent-400/20 via-transparent to-accent-400/20 opacity-0 transition-opacity duration-500 -z-10 blur-xl;
+}
+
+.glow-accent:hover::after {
+  @apply opacity-100;
+}
+
+/* Link styles */
+.link {
+  @apply text-accent-400 underline-offset-4 transition-colors hover:text-accent-300 hover:underline;
+}
+
+/* Selection */
+::selection {
+  @apply bg-accent-400/30 text-white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-surface-400 hover:bg-surface-500;
+}
+
+/* Focus visible global */
+:focus-visible {
+  @apply outline-none;
 }

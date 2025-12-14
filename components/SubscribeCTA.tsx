@@ -64,39 +64,47 @@ export function SubscribeCTA() {
 
     const { default: confetti } = await import('canvas-confetti');
     confetti({
-      particleCount: 60,
-      spread: 50,
-      origin: { y: 0.7 },
-      startVelocity: 35,
-      scalar: 0.6
+      particleCount: 80,
+      spread: 60,
+      origin: { y: 0.6 },
+      startVelocity: 40,
+      scalar: 0.7,
+      colors: ['#fbbf24', '#fcd34d', '#fde68a', '#ffffff']
     });
   };
 
   return (
-    <section id="subscribe" className="card-muted relative overflow-hidden p-8">
-      <div className="absolute inset-0 bg-gradient-to-br from-sand-50 via-white to-sand-100" aria-hidden />
-      <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <div className="space-y-2">
+    <section id="subscribe" className="card relative overflow-hidden p-8 md:p-10">
+      {/* Gradient accent */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-accent-400/10 via-transparent to-accent-400/5 pointer-events-none" 
+        aria-hidden="true" 
+      />
+      
+      <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="space-y-4 lg:max-w-xl">
           <p className="section-title">Subscribe</p>
-          <h2 className="section-heading">Practical local government updates</h2>
-          <p className="max-w-2xl text-sm text-slate-700">
-            Actionable notes on service delivery, civic tech pilots, and human-centered practices. Delivered occasionally
-            with zero spam.
+          <h2 className="section-heading">Stay updated on AI in government</h2>
+          <p className="text-sm leading-relaxed text-muted-300">
+            Occasional notes on service delivery experiments, civic tech pilots, and human-centered AI practices. 
+            No spam, just practical insights.
           </p>
-          <p className="text-xs font-medium text-slate-600">
+          <p className="text-xs font-medium text-muted-400">
             Personal newsletter. Not an official City communication.
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
+        
+        <div className="flex flex-wrap items-center gap-4">
           <button className="button-primary" onClick={() => setOpen(true)}>
             Subscribe for updates
           </button>
           <button className="button-secondary" onClick={() => setOpen(true)}>
-            Preview the invite
+            Preview
           </button>
         </div>
       </div>
 
+      {/* Modal */}
       {open && (
         <div
           className="modal-overlay"
@@ -106,55 +114,75 @@ export function SubscribeCTA() {
           onClick={() => setOpen(false)}
         >
           <div
-            className="modal-card"
+            className="modal-card w-full max-w-md animate-scale-in"
             ref={modalRef}
             onClick={(event) => event.stopPropagation()}
             role="document"
           >
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="section-title" id="subscribe-title">
-                  Subscribe
-                </p>
-                <h3 className="section-heading">Practical local government updates</h3>
+            {/* Modal gradient accent */}
+            <div 
+              className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-accent-400/20 blur-3xl" 
+              aria-hidden="true" 
+            />
+            
+            <div className="relative">
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-1">
+                  <p className="section-title" id="subscribe-title">
+                    Subscribe
+                  </p>
+                  <h3 className="text-xl font-semibold text-white">Get practical AI updates</h3>
+                </div>
+                <button
+                  aria-label="Close modal"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 text-muted-400 transition-colors hover:bg-surface-300 hover:text-white"
+                  onClick={() => setOpen(false)}
+                >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
               </div>
-              <button
-                aria-label="Close modal"
-                className="button-secondary px-3 py-2 text-xs"
-                onClick={() => setOpen(false)}
-              >
-                Close
-              </button>
-            </div>
-            <p className="mt-3 text-sm text-slate-700">
-              A short briefing on experiments, demos, and playbooks that make services more humane and reliable.
-            </p>
-            <p className="mt-1 text-xs font-medium text-slate-600">
-              Personal newsletter. Not an official City communication.
-            </p>
+              
+              <p className="mt-4 text-sm leading-relaxed text-muted-300">
+                A short briefing on experiments, demos, and playbooks that make public services more effective and humane.
+              </p>
+              <p className="mt-2 text-xs font-medium text-muted-500">
+                Personal newsletter. Not an official City communication.
+              </p>
 
-            <form className="mt-6 space-y-3" onSubmit={handleSubmit}>
-              <label className="block text-sm font-semibold text-slate-800" htmlFor="email">
-                Email address
-              </label>
-              <input
-                ref={inputRef}
-                id="email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-              />
-              <button type="submit" className="button-primary w-full justify-center">
-                Get the updates
-              </button>
-              {status === 'success' && (
-                <p className="text-sm font-medium text-emerald-700">All set! A confirmation will arrive shortly.</p>
-              )}
-            </form>
+              <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-muted-200" htmlFor="email">
+                    Email address
+                  </label>
+                  <input
+                    ref={inputRef}
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    autoComplete="email"
+                  />
+                </div>
+                
+                <button type="submit" className="button-primary w-full justify-center">
+                  Get the updates
+                </button>
+                
+                {status === 'success' && (
+                  <div className="flex items-center gap-2 rounded-lg bg-green-500/10 p-3 text-sm text-green-400">
+                    <svg className="h-5 w-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>All set! A confirmation will arrive shortly.</span>
+                  </div>
+                )}
+              </form>
+            </div>
           </div>
           <button className="sr-only" onClick={() => setOpen(false)}>
             Close overlay

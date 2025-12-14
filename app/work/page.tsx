@@ -18,23 +18,29 @@ const projects = [
 
 export default function WorkPage() {
   return (
-    <div className="space-y-8">
-      <div className="card p-8">
+    <div className="space-y-10">
+      <section className="card p-8 md:p-10">
         <p className="section-title">Work</p>
-        <h2 className="section-heading">Works in progress</h2>
-        <p className="mt-3 max-w-3xl text-sm text-slate-700">
-          A snapshot of current explorations focused on practical AI use in city services. These drafts will evolve with more
-          detail and implementation notes.
+        <h2 className="section-heading mt-2">Works in progress</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-300">
+          A snapshot of current explorations focused on practical AI use in city services. 
+          These drafts will evolve with more detail and implementation notes.
         </p>
-      </div>
+      </section>
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <div key={project.title} className="card p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand-600">{project.status}</p>
-            <h3 className="mt-2 text-lg font-semibold text-slate-900">{project.title}</h3>
-            <p className="mt-2 text-sm text-slate-700">{project.summary}</p>
-          </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <article 
+            key={project.title} 
+            className="card scroll-fade-in p-6"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <span className={`tag ${project.status === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
+              {project.status}
+            </span>
+            <h3 className="mt-4 text-lg font-semibold text-white">{project.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-400">{project.summary}</p>
+          </article>
         ))}
       </div>
     </div>

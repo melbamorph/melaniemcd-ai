@@ -18,22 +18,34 @@ const articles = [
 
 export default function WritingPage() {
   return (
-    <div className="space-y-8">
-      <div className="card p-8">
+    <div className="space-y-10">
+      <section className="card p-8 md:p-10">
         <p className="section-title">Writing</p>
-        <h2 className="section-heading">Notes from the field</h2>
-        <p className="mt-3 max-w-3xl text-sm text-slate-700">
-          Short essays and dispatches on building better public services. These pair with demos and playbooks to share what is
-          working in real teams.
+        <h2 className="section-heading mt-2">Notes from the field</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-300">
+          Short essays and dispatches on building better public services. 
+          These pair with demos and playbooks to share what is working in real teams.
         </p>
-      </div>
+      </section>
 
       <div className="space-y-4">
-        {articles.map((article) => (
-          <article key={article.title} className="card p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand-600">{article.date}</p>
-            <h3 className="mt-2 text-lg font-semibold text-slate-900">{article.title}</h3>
-            <p className="mt-2 text-sm text-slate-700">{article.summary}</p>
+        {articles.map((article, index) => (
+          <article 
+            key={article.title} 
+            className="card scroll-fade-in group cursor-pointer p-6 transition-all hover:border-accent-400/30"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div className="space-y-2">
+                <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-accent-400">
+                  {article.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-400">{article.summary}</p>
+              </div>
+              <span className="flex-shrink-0 text-xs font-medium text-muted-500">
+                {article.date}
+              </span>
+            </div>
           </article>
         ))}
       </div>
