@@ -73,7 +73,7 @@ export function SubscribeCTA() {
   };
 
   return (
-    <section className="card-muted relative overflow-hidden p-8">
+    <section id="subscribe" className="card-muted relative overflow-hidden p-8">
       <div className="absolute inset-0 bg-gradient-to-br from-sand-50 via-white to-sand-100" aria-hidden />
       <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-2">
