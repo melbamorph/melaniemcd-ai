@@ -42,15 +42,29 @@ components/
 
 ## Routes
 Active routes:
-- `/` - Minimal landing with hero, coming soon teaser, social links
+- `/` - Minimal landing with hero, projects section, social links
 - `/about` - Bio and background
 - `/contact` - Contact page
+- `/projects/zoner-mcp` - Zoner MCP project detail page
 
 Hidden routes (pages exist, nav links removed):
 - `/work` - Work samples
 - `/demos` - AI sandbox concepts
 - `/playbooks` - Lean team guides
 - `/writing` - Field notes
+
+## Project Page Template
+The `/projects/zoner-mcp/page.tsx` serves as a template for future project pages. Key sections:
+- Back navigation link
+- Project title with icon
+- Description and overview
+- GitHub/Demo action buttons
+- "What It Does" section
+- "Design Philosophy" section
+- "Tech Stack" badges
+- "Key Features" grid
+- "API Endpoints" table (if applicable)
+- License info
 
 ## Tech Stack
 - **Next.js 14.2.35** (App Router)
