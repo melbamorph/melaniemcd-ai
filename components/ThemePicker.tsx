@@ -9,10 +9,17 @@ const themes = [
   { name: 'emerald', color: '#10b981', label: 'Green' },
 ];
 
+const fontSizes = [
+  { name: 'small', label: 'S', scale: '0.9' },
+  { name: 'medium', label: 'M', scale: '1' },
+  { name: 'large', label: 'L', scale: '1.1' },
+];
+
 export function ThemePicker() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTheme, setActiveTheme] = useState('pink');
   const [isDark, setIsDark] = useState(true);
+  const [fontSize, setFontSize] = useState('medium');
   const [mounted, setMounted] = useState(false);
 
   const applyTheme = useCallback((themeName: string, dark: boolean) => {
@@ -34,14 +41,22 @@ export function ThemePicker() {
     }
   }, []);
 
+  const applyFontSize = useCallback((size: string) => {
+    const sizeConfig = fontSizes.find(s => s.name === size) || fontSizes[1];
+    document.documentElement.style.setProperty('--font-scale', sizeConfig.scale);
+  }, []);
+
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem('accent-theme') || 'pink';
     const savedMode = localStorage.getItem('color-mode') || 'dark';
+    const savedFontSize = localStorage.getItem('font-size') || 'medium';
     setActiveTheme(savedTheme);
     setIsDark(savedMode === 'dark');
+    setFontSize(savedFontSize);
     applyTheme(savedTheme, savedMode === 'dark');
-  }, [applyTheme]);
+    applyFontSize(savedFontSize);
+  }, [applyTheme, applyFontSize]);
 
   const handleThemeChange = (themeName: string) => {
     setActiveTheme(themeName);
@@ -54,6 +69,12 @@ export function ThemePicker() {
     setIsDark(newMode);
     localStorage.setItem('color-mode', newMode ? 'dark' : 'light');
     applyTheme(activeTheme, newMode);
+  };
+
+  const handleFontSizeChange = (size: string) => {
+    setFontSize(size);
+    localStorage.setItem('font-size', size);
+    applyFontSize(size);
   };
 
   if (!mounted) {
@@ -123,6 +144,30 @@ export function ThemePicker() {
                   title={theme.label}
                 />
               ))}
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-white/10">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-400">Size</span>
+                <div className="flex gap-1">
+                  {fontSizes.map((size) => (
+                    <button
+                      key={size.name}
+                      onClick={() => handleFontSizeChange(size.name)}
+                      type="button"
+                      className={`font-size-btn flex h-7 w-7 items-center justify-center rounded-md text-xs font-semibold transition-all ${
+                        fontSize === size.name
+                          ? 'bg-accent-400 text-white'
+                          : 'border border-white/10 text-muted-300 hover:border-white/20 hover:text-white'
+                      }`}
+                      aria-label={`${size.name} font size`}
+                      title={size.name.charAt(0).toUpperCase() + size.name.slice(1)}
+                    >
+                      {size.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </>

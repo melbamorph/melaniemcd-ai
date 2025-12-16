@@ -53,6 +53,11 @@
   --color-accent-muted: rgba(236, 72, 153, 0.1);
   --glass-bg: rgba(18, 18, 26, 0.8);
   --glass-border: rgba(255, 255, 255, 0.08);
+  --font-scale: 1;
+}
+
+html {
+  font-size: calc(16px * var(--font-scale));
 }
 
 /* Base styles */
@@ -454,6 +459,18 @@ input:focus, textarea:focus {
 
 .light-mode .theme-swatch {
   @apply ring-offset-white;
+}
+
+.light-mode .theme-picker-panel .border-t {
+  @apply border-slate-200;
+}
+
+.light-mode .font-size-btn {
+  @apply border-slate-200 text-slate-600;
+}
+
+.light-mode .font-size-btn:hover {
+  @apply border-slate-300 text-slate-900;
 }
 
 /* Button overrides for light mode */
