@@ -26,16 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="fixed inset-0 grid-pattern pointer-events-none opacity-50" aria-hidden="true" />
           
           <div className="relative mx-auto max-w-6xl px-6 py-8 lg:px-8 lg:py-12">
-            <header className="mb-12 flex items-center justify-between">
-              <Link href="/" className="group space-y-1">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-400 transition-colors group-hover:text-accent-300">
-                  Melanie McDonough
-                </p>
-                <h1 className="text-lg font-semibold text-white transition-colors group-hover:text-muted-100">
-                  AI Experiments
-                </h1>
-              </Link>
-              
+            <header className="mb-8 flex items-center justify-end">
               <nav className="hidden items-center gap-1 sm:flex" aria-label="Main navigation">
                 {navLinks.map((link) => (
                   <Link key={link.href} className="nav-link" href={link.href}>
