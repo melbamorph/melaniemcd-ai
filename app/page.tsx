@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function HomePage() {
   return (
     <div className="pt-4">
@@ -16,22 +18,26 @@ export default function HomePage() {
 
         <div className="coming-soon-section">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-400 mb-4">
-            Coming Soon
+            Projects
           </p>
           <div className="grid gap-4 sm:grid-cols-2 max-w-xl">
-            <div className="coming-soon-card glow-accent">
+            <Link href="/projects/zoner-mcp" className="coming-soon-card glow-accent group cursor-pointer">
               <span className="coming-soon-icon">◇</span>
               <div>
-                <p className="font-medium text-white">Zoner MCP</p>
+                <p className="font-medium text-white group-hover:text-accent-400 transition-colors">Zoner MCP</p>
                 <p className="text-sm text-muted-400">Model Context Protocol experiments</p>
               </div>
-            </div>
+              <svg className="w-4 h-4 ml-auto text-muted-400 group-hover:text-accent-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
             <div className="coming-soon-card glow-accent">
               <span className="coming-soon-icon">○</span>
               <div>
                 <p className="font-medium text-white">Chatbot</p>
                 <p className="text-sm text-muted-400">Conversational AI for civic services</p>
               </div>
+              <span className="tag tag-coming ml-auto">Soon</span>
             </div>
           </div>
         </div>
