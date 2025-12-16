@@ -20,13 +20,13 @@ const config: Config = {
           600: '#4a4a58'
         },
         accent: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706'
+          50: '#fdf2f8',
+          100: '#fce7f3',
+          200: '#fbcfe8',
+          300: '#f9a8d4',
+          400: '#ec4899',
+          500: '#db2777',
+          600: '#be185d'
         },
         muted: {
           50: '#f8fafc',
@@ -38,8 +38,8 @@ const config: Config = {
         }
       },
       boxShadow: {
-        glow: '0 0 40px rgba(251, 191, 36, 0.15)',
-        'glow-sm': '0 0 20px rgba(251, 191, 36, 0.1)',
+        glow: '0 0 40px rgba(236, 72, 153, 0.15)',
+        'glow-sm': '0 0 20px rgba(236, 72, 153, 0.1)',
         glass: '0 8px 32px rgba(0, 0, 0, 0.3)',
         'glass-sm': '0 4px 16px rgba(0, 0, 0, 0.2)',
         'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.05)'
@@ -54,7 +54,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
-        'gradient-mesh': 'radial-gradient(at 40% 20%, rgba(251, 191, 36, 0.08) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(251, 191, 36, 0.05) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(99, 102, 241, 0.05) 0px, transparent 50%)'
+        'gradient-mesh': 'radial-gradient(at 40% 20%, rgba(236, 72, 153, 0.08) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(236, 72, 153, 0.05) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(99, 102, 241, 0.05) 0px, transparent 50%)'
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
@@ -81,8 +81,8 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'scale(1)' }
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(251, 191, 36, 0.1)' },
-          '50%': { boxShadow: '0 0 40px rgba(251, 191, 36, 0.2)' }
+          '0%, 100%': { boxShadow: '0 0 20px rgba(236, 72, 153, 0.1)' },
+          '50%': { boxShadow: '0 0 40px rgba(236, 72, 153, 0.2)' }
         }
       }
     }
