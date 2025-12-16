@@ -12,7 +12,7 @@ export default function ContactPage() {
         </p>
         <a
           className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent-400/30 bg-accent-400/10 px-5 py-3 text-sm font-semibold text-accent-400 transition-all hover:bg-accent-400/20 hover:border-accent-400/50"
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/in/melaniemcdonough/"
           rel="noreferrer"
           target="_blank"
         >

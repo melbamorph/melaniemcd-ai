@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <div className="flex flex-wrap gap-4 text-sm">
                   <a
                     className="link inline-flex items-center gap-1.5"
-                    href="https://github.com"
+                    href="https://github.com/melbamorph"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   </a>
                   <a
                     className="link inline-flex items-center gap-1.5"
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/melaniemcdonough/"
                     rel="noopener noreferrer"
                     target="_blank"
                   >

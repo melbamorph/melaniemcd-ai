@@ -33,7 +33,7 @@ export default function AboutPage() {
         </p>
         <a
           className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent-400 transition-colors hover:text-accent-300"
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/in/melaniemcdonough/"
           rel="noreferrer"
           target="_blank"
         >
