@@ -316,10 +316,34 @@ input:focus, textarea:focus {
 .light-mode {
   --color-surface: #f8fafc;
   --color-surface-elevated: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  color-scheme: light;
 }
 
 .light-mode body {
   @apply bg-slate-50 text-slate-900;
+}
+
+/* General text color overrides for light mode */
+.light-mode .text-white {
+  @apply text-slate-900;
+}
+
+.light-mode .text-muted-200 {
+  @apply text-slate-700;
+}
+
+.light-mode .text-muted-300 {
+  @apply text-slate-600;
+}
+
+.light-mode .text-muted-400 {
+  @apply text-slate-500;
+}
+
+.light-mode .text-muted-500 {
+  @apply text-slate-400;
 }
 
 .light-mode .card {
@@ -332,6 +356,10 @@ input:focus, textarea:focus {
 
 .light-mode .card:hover {
   @apply border-slate-300/50;
+}
+
+.light-mode .card-muted {
+  @apply border-slate-200/50 bg-slate-100/50;
 }
 
 .light-mode .nav-link {
@@ -354,8 +382,16 @@ input:focus, textarea:focus {
   color: var(--color-accent);
 }
 
+.light-mode .section-heading {
+  @apply text-slate-900;
+}
+
 .light-mode .coming-soon-card {
   @apply border-slate-200/50 bg-white/60;
+}
+
+.light-mode .coming-soon-card:hover {
+  @apply border-slate-300/50 bg-white/80;
 }
 
 .light-mode .coming-soon-icon {
@@ -366,8 +402,13 @@ input:focus, textarea:focus {
   @apply text-slate-900;
 }
 
-.light-mode .coming-soon-card p.text-muted-400 {
+.light-mode .coming-soon-card p.text-muted-400,
+.light-mode .coming-soon-card .text-muted-400 {
   @apply text-slate-600;
+}
+
+.light-mode .coming-soon-card .text-sm.text-muted-400 {
+  @apply text-slate-500;
 }
 
 .light-mode .link {
@@ -378,12 +419,73 @@ input:focus, textarea:focus {
   @apply border-slate-200 bg-white/95;
 }
 
+/* Button overrides for light mode */
+.light-mode .button-secondary {
+  @apply border-slate-200 bg-white/80 text-slate-700;
+}
+
+.light-mode .button-secondary:hover {
+  @apply border-slate-300 bg-slate-100/80 text-slate-900;
+}
+
+/* Form elements in light mode */
+.light-mode input,
+.light-mode textarea {
+  @apply border-slate-200 bg-white/80 text-slate-900 placeholder-slate-400;
+}
+
+.light-mode input:focus,
+.light-mode textarea:focus {
+  @apply border-slate-300;
+}
+
+/* Modal in light mode */
+.light-mode .modal-overlay {
+  @apply bg-slate-900/20;
+}
+
+.light-mode .modal-card {
+  @apply border-slate-200 bg-white/95;
+}
+
+.light-mode .modal-card::before {
+  @apply bg-gradient-to-br from-slate-50/50 to-transparent;
+}
+
+/* Social links in light mode */
+.light-mode .social-link {
+  @apply text-slate-600 border-slate-200 bg-white/50;
+}
+
+.light-mode .social-link:hover {
+  @apply text-slate-900 border-slate-300 bg-slate-50;
+}
+
+/* Tags in light mode */
+.light-mode .tag-coming {
+  @apply bg-slate-100 text-slate-600 border-slate-200;
+}
+
+/* Coming soon section border */
+.light-mode .coming-soon-section {
+  @apply border-slate-200/50;
+}
+
 .light-mode footer {
   @apply border-slate-200/50;
 }
 
 .light-mode footer p {
   @apply text-slate-600;
+}
+
+/* Scrollbar in light mode */
+.light-mode ::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+.light-mode ::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 hover:bg-slate-400;
 }
 
 /* Selection */
