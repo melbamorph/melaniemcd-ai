@@ -294,9 +294,97 @@ input:focus, textarea:focus {
   @apply text-accent-400 underline-offset-4 transition-colors hover:text-accent-300 hover:underline;
 }
 
+/* Theme picker */
+.theme-picker-panel {
+  @apply absolute right-0 top-12 z-50 rounded-xl border border-white/10 bg-surface-100/95 p-4 shadow-glass backdrop-blur-xl;
+  min-width: 180px;
+}
+
+.theme-swatch {
+  @apply h-8 w-8 rounded-full cursor-pointer transition-all duration-200 hover:scale-110;
+}
+
+/* Light mode overrides */
+.light-mode {
+  --color-surface: #f8fafc;
+  --color-surface-elevated: #ffffff;
+}
+
+.light-mode body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+.light-mode .card {
+  @apply border-slate-200/50 bg-white/80;
+}
+
+.light-mode .card::before {
+  @apply bg-gradient-to-br from-slate-100/50 to-transparent;
+}
+
+.light-mode .card:hover {
+  @apply border-slate-300/50;
+}
+
+.light-mode .nav-link {
+  @apply text-slate-600;
+}
+
+.light-mode .nav-link:hover {
+  @apply text-slate-900;
+}
+
+.light-mode .hero-headline {
+  @apply text-slate-900;
+}
+
+.light-mode .gradient-text {
+  @apply bg-gradient-to-r from-slate-900 via-[var(--color-accent)] to-[var(--color-accent)] bg-clip-text text-transparent;
+}
+
+.light-mode .section-title {
+  color: var(--color-accent);
+}
+
+.light-mode .coming-soon-card {
+  @apply border-slate-200/50 bg-white/60;
+}
+
+.light-mode .coming-soon-icon {
+  color: var(--color-accent);
+}
+
+.light-mode .coming-soon-card p.font-medium {
+  @apply text-slate-900;
+}
+
+.light-mode .coming-soon-card p.text-muted-400 {
+  @apply text-slate-600;
+}
+
+.light-mode .link {
+  color: var(--color-accent);
+}
+
+.light-mode .theme-picker-panel {
+  @apply border-slate-200 bg-white/95;
+}
+
+.light-mode footer {
+  @apply border-slate-200/50;
+}
+
+.light-mode footer p {
+  @apply text-slate-600;
+}
+
 /* Selection */
 ::selection {
   @apply bg-accent-400/30 text-white;
+}
+
+.light-mode ::selection {
+  @apply bg-accent-400/30 text-slate-900;
 }
 
 /* Scrollbar */
