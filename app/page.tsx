@@ -1,6 +1,6 @@
 export default function HomePage() {
   return (
-    <div className="min-h-[70vh] flex flex-col justify-center">
+    <div className="pt-4">
       <section className="space-y-12">
         <div className="space-y-6 max-w-2xl">
           <p className="section-title">Innovation Space</p>
@@ -19,14 +19,14 @@ export default function HomePage() {
             Coming Soon
           </p>
           <div className="grid gap-4 sm:grid-cols-2 max-w-xl">
-            <div className="coming-soon-card">
+            <div className="coming-soon-card glow-accent">
               <span className="coming-soon-icon">◇</span>
               <div>
                 <p className="font-medium text-white">Zoner MCP</p>
                 <p className="text-sm text-muted-400">Model Context Protocol experiments</p>
               </div>
             </div>
-            <div className="coming-soon-card">
+            <div className="coming-soon-card glow-accent">
               <span className="coming-soon-icon">○</span>
               <div>
                 <p className="font-medium text-white">Chatbot</p>
