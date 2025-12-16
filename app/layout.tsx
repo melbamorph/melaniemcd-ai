@@ -7,17 +7,13 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'Melanie McDonough | AI Solutions for Government',
+  title: 'Melanie McDonough | AI Experiments for Local Government',
   description:
-    'Portfolio showcasing AI adoption strategies, demos, and playbooks for local government and civic technology.'
+    'A personal innovation space for sharing AI experiments and learnings focused on local government and civic technology.'
 };
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/work', label: 'Work' },
-  { href: '/demos', label: 'Demos' },
-  { href: '/playbooks', label: 'Playbooks' },
-  { href: '/writing', label: 'Writing' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' }
 ];
@@ -36,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   Melanie McDonough
                 </p>
                 <h1 className="text-lg font-semibold text-white transition-colors group-hover:text-muted-100">
-                  AI Solutions for Government
+                  AI Experiments
                 </h1>
               </Link>
               
@@ -64,31 +60,36 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-300">
-                    Advancing AI adoption in local government.
+                    Experimenting with AI for local government.
                   </p>
                   <p className="text-xs text-muted-400">
-                    Building practical solutions for public sector challenges.
+                    Personal innovation space. More projects coming soon.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-4 text-sm">
-                  <Link className="link" href="/about">
-                    About
-                  </Link>
-                  <Link className="link" href="/contact">
-                    Contact
-                  </Link>
                   <a
-                    className="link"
-                    href="https://www.linkedin.com"
-                    rel="noreferrer"
+                    className="link inline-flex items-center gap-1.5"
+                    href="https://github.com"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    className="link inline-flex items-center gap-1.5"
+                    href="https://linkedin.com"
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
                     LinkedIn
                   </a>
+                  <Link className="link" href="/contact">
+                    Contact
+                  </Link>
                 </div>
               </div>
               <p className="mt-8 text-xs text-muted-500">
-                Personal portfolio. Views expressed are my own.
+                Personal innovation space. Views expressed are my own.
               </p>
             </footer>
           </div>

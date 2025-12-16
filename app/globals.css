@@ -223,6 +223,50 @@ input:focus, textarea:focus {
   @apply bg-gradient-to-r from-white via-accent-200 to-accent-400 bg-clip-text text-transparent;
 }
 
+/* Hero headline with modern text-wrap */
+.hero-headline {
+  @apply text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-white leading-[1.1];
+  text-wrap: balance;
+}
+
+/* Coming soon section */
+.coming-soon-section {
+  @apply pt-8 border-t border-white/[0.05];
+}
+
+.coming-soon-card {
+  @apply flex items-start gap-4 p-4 rounded-xl border border-white/[0.06] bg-surface-100/40 backdrop-blur-sm transition-all duration-300;
+  background: color-mix(in oklab, var(--color-surface-elevated) 80%, transparent);
+}
+
+.coming-soon-card:hover {
+  @apply border-white/[0.1];
+  background: color-mix(in oklab, var(--color-surface-elevated) 95%, transparent);
+}
+
+.coming-soon-icon {
+  @apply text-lg text-accent-400/70 mt-0.5;
+}
+
+/* Social links */
+.social-link {
+  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-muted-300 border border-white/[0.08] bg-surface-100/50 backdrop-blur-sm transition-all duration-300;
+}
+
+.social-link:hover {
+  @apply text-white border-white/[0.15] -translate-y-0.5;
+  background: color-mix(in oklab, var(--color-surface-elevated) 90%, transparent);
+}
+
+.social-link:focus-visible {
+  @apply outline-none ring-2 ring-accent-400/50 ring-offset-2 ring-offset-surface-50;
+}
+
+/* Text balance utility */
+.text-balance {
+  text-wrap: balance;
+}
+
 /* Subtle grid pattern overlay */
 .grid-pattern {
   background-image: 

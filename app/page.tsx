@@ -1,172 +1,66 @@
-import Link from 'next/link';
-import { SubscribeCTA } from '@/components/SubscribeCTA';
-
-const focusAreas = [
-  { 
-    label: 'AI Adoption', 
-    detail: 'Helping teams understand when and how to apply emerging tools responsibly.',
-    icon: '◆'
-  },
-  { 
-    label: 'Process Design', 
-    detail: 'Clarifying workflows so service improvements actually stick.',
-    icon: '◇'
-  },
-  { 
-    label: 'Transparency', 
-    detail: 'Sharing progress openly with residents and stakeholders.',
-    icon: '○'
-  }
-];
-
-const workHighlights = [
-  {
-    title: 'Service intake sketch',
-    description: 'Draft concept for simplifying intake questions and handoffs between departments.',
-    tag: 'Draft',
-    link: '/work'
-  },
-  {
-    title: 'Channel alignment outline',
-    description: 'Notes on keeping guidance consistent across chat, phone, and walk-in support.',
-    tag: 'Draft',
-    link: '/work'
-  },
-  {
-    title: 'Assisted navigation idea',
-    description: 'Early thinking on a helper that points residents to the right resources.',
-    tag: 'Coming soon',
-    link: '/work'
-  }
-];
-
-const demoHighlights = [
-  {
-    title: 'Service patterns sandbox',
-    description: 'Exploratory prompts and guardrails for common resident questions.',
-    tag: 'Draft',
-    link: '/demos'
-  },
-  {
-    title: 'Case triage concept',
-    description: 'A guided flow to sort requests and note follow-ups.',
-    tag: 'Coming soon',
-    link: '/demos'
-  }
-];
-
 export default function HomePage() {
   return (
-    <div className="space-y-16">
-      <section className="card p-8 md:p-12">
-        <div className="space-y-8 lg:flex lg:items-start lg:justify-between lg:gap-12 lg:space-y-0">
-          <div className="max-w-2xl space-y-6">
-            <div className="space-y-4">
-              <p className="section-title">Portfolio</p>
-              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                <span className="text-white">Practical AI for </span>
-                <span className="gradient-text">city services</span>
-              </h2>
-            </div>
-            <p className="text-lg leading-relaxed text-muted-300">
-              A working space to share in-progress ideas, drafts, and demos focused on AI adoption in local government. 
-              Each page is intentionally lightweight so it can evolve quickly.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-2">
-              <Link className="button-primary" href="/contact">
-                Get in touch
-              </Link>
-              <Link className="button-secondary" href="/work">
-                View work samples
-              </Link>
-            </div>
-          </div>
-          
-          <div className="grid w-full max-w-sm gap-4 lg:mt-0">
-            {focusAreas.map((area, index) => (
-              <div 
-                key={area.label} 
-                className="feature-tile glow-accent"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="flex items-start gap-4">
-                  <span className="text-xl text-accent-400">{area.icon}</span>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-wider text-accent-400">
-                      {area.label}
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-300">{area.detail}</p>
-                  </div>
-                </div>
+    <div className="min-h-[70vh] flex flex-col justify-center">
+      <section className="space-y-12">
+        <div className="space-y-6 max-w-2xl">
+          <p className="section-title">Innovation Space</p>
+          <h2 className="hero-headline">
+            AI Experiments for{' '}
+            <span className="gradient-text">Local Government</span>
+          </h2>
+          <p className="text-lg leading-relaxed text-muted-300 text-balance">
+            A personal space for sharing learnings, experiments, and practical approaches 
+            to AI adoption in the public sector. More projects coming soon.
+          </p>
+        </div>
+
+        <div className="coming-soon-section">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-400 mb-4">
+            Coming Soon
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 max-w-xl">
+            <div className="coming-soon-card">
+              <span className="coming-soon-icon">◇</span>
+              <div>
+                <p className="font-medium text-white">Zoner MCP</p>
+                <p className="text-sm text-muted-400">Model Context Protocol experiments</p>
               </div>
-            ))}
+            </div>
+            <div className="coming-soon-card">
+              <span className="coming-soon-icon">○</span>
+              <div>
+                <p className="font-medium text-white">Chatbot</p>
+                <p className="text-sm text-muted-400">Conversational AI for civic services</p>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
 
-      <section className="scroll-fade-in space-y-8">
-        <div className="flex items-end justify-between">
-          <div className="space-y-2">
-            <p className="section-title">Featured Work</p>
-            <h3 className="section-heading">Recent drafts</h3>
-          </div>
-          <Link className="button-secondary text-sm" href="/work">
-            See all
-          </Link>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {workHighlights.map((item, index) => (
-            <Link
-              key={item.title}
-              href={item.link}
-              className="card group block p-6 no-underline"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <span className={`tag ${item.tag === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
-                {item.tag}
-              </span>
-              <h4 className="mt-4 text-lg font-semibold text-white transition-colors group-hover:text-accent-400">
-                {item.title}
-              </h4>
-              <p className="mt-2 text-sm leading-relaxed text-muted-400">{item.description}</p>
-            </Link>
-          ))}
+        <div className="flex flex-wrap gap-4 pt-4">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
         </div>
       </section>
-
-      <section className="scroll-fade-in space-y-8">
-        <div className="flex items-end justify-between">
-          <div className="space-y-2">
-            <p className="section-title">Demos</p>
-            <h3 className="section-heading">Sandbox concepts</h3>
-          </div>
-          <Link className="button-secondary text-sm" href="/demos">
-            Explore
-          </Link>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {demoHighlights.map((item, index) => (
-            <Link
-              key={item.title}
-              href={item.link}
-              className="card group block p-6 no-underline"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <span className={`tag ${item.tag === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
-                {item.tag}
-              </span>
-              <h4 className="mt-4 text-lg font-semibold text-white transition-colors group-hover:text-accent-400">
-                {item.title}
-              </h4>
-              <p className="mt-2 text-sm leading-relaxed text-muted-400">{item.description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <div className="scroll-fade-in">
-        <SubscribeCTA />
-      </div>
     </div>
   );
 }
