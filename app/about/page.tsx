@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="space-y-10">
+    <div>
       <section className="card p-8 md:p-10">
         <p className="section-title">About</p>
         <h2 className="section-heading mt-2">Melanie McDonough</h2>
@@ -14,10 +14,8 @@ export default function AboutPage() {
             more consistent, and easier for residents to navigate.
           </p>
         </div>
-      </section>
 
-      <section className="card scroll-fade-in p-8 md:p-10">
-        <h3 className="text-lg font-semibold text-white">Background</h3>
+        <h3 className="mt-10 text-lg font-semibold text-white">Background</h3>
         <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-muted-300">
           <p>
             I work at the intersection of technology and public service, helping government teams 
@@ -28,10 +26,8 @@ export default function AboutPage() {
             and pilot frameworks that can be adapted to different civic contexts.
           </p>
         </div>
-      </section>
 
-      <section className="card scroll-fade-in p-8 md:p-10">
-        <h3 className="text-lg font-semibold text-white">Connect</h3>
+        <h3 className="mt-10 text-lg font-semibold text-white">Connect</h3>
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-300">
           For collaboration questions or quick context, the best way to reach me is on LinkedIn.
         </p>
