@@ -37,7 +37,7 @@ app/
   page.tsx             # Minimal home/landing page
 
 components/
-  SubscribeCTA.tsx     # Subscribe modal (not used in current minimal version)
+  ThemePicker.tsx      # Theme/accent color picker
 ```
 
 ## Routes
@@ -74,11 +74,13 @@ The `/projects/zoner-mcp/page.tsx` serves as a template for future project pages
 - **Node.js 20+**
 
 ## Key Features
-- SubscribeCTA modal with focus trap, placeholder submit, reduced-motion confetti
+- Unified contact page with LinkedIn and newsletter subscribe in a two-column layout
+- Subscribe modal with focus trap, form validation, and reduced-motion confetti
 - Scroll-based reveal animations
 - Glassmorphism card styling
 - Gradient text effects
 - Subtle grid pattern overlay
+- Theme picker component
 
 ## Development
 ```bash
