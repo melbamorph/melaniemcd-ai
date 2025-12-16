@@ -64,8 +64,8 @@ export default function ZonerMCPPage() {
           </p>
           <p>
             The server takes a street address and returns zoning information, enabling AI 
-            agents to answer questions like "What zone is 123 Main Street in?" or 
-            "Can I build a duplex at this address?"
+            agents to answer questions like &quot;What zone is 123 Main Street in?&quot; or 
+            &quot;Can I build a duplex at this address?&quot;
           </p>
         </div>
       </section>
