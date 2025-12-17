@@ -42,6 +42,52 @@ export default function HomePage() {
           </div>
         </div>
 
+        <div className="coming-soon-section">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-400 mb-4">
+            Guides
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 max-w-xl">
+            <Link
+              href="https://melbamorph.me/2025/05/05/civic-roundup-gpt/"
+              className="coming-soon-card glow-accent group cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="coming-soon-icon">◇</span>
+              <div>
+                <p className="font-medium text-white group-hover:text-accent-400 transition-colors">
+                  Civic RoundUp: Turning RSS Feeds into Resident-Ready Newsletters with a Custom GPT
+                </p>
+                <p className="text-sm text-muted-400">
+                  Step-by-step guide to turning municipal RSS feeds into a resident-ready newsletter using a Custom GPT.
+                </p>
+              </div>
+              <svg className="w-4 h-4 ml-auto text-muted-400 group-hover:text-accent-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <Link
+              href="https://melbamorph.me/2025/07/26/chatgpt-tasks/"
+              className="coming-soon-card glow-accent group cursor-pointer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="coming-soon-icon">△</span>
+              <div>
+                <p className="font-medium text-white group-hover:text-accent-400 transition-colors">
+                  Automate Your Municipal Workflow with ChatGPT Tasks
+                </p>
+                <p className="text-sm text-muted-400">
+                  Guide to using ChatGPT Tasks for reminders and recurring municipal workflow automation (published via agent-assisted workflow).
+                </p>
+              </div>
+              <svg className="w-4 h-4 ml-auto text-muted-400 group-hover:text-accent-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+
       </section>
     </div>
   );
