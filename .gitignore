@@ -27,3 +27,6 @@ pnpm-debug.log*
 # Replit
 *.replit
 replit.nix
+
+# Assets
+attached_assets/
