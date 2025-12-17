@@ -308,6 +308,43 @@ input:focus, textarea:focus {
 }
 
 /* Theme picker */
+.theme-picker-btn {
+  @apply relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-surface-100/60 text-muted-300 shadow-glass-sm backdrop-blur-sm transition-all duration-300;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.theme-picker-btn::before {
+  content: '';
+  @apply absolute inset-0 rounded-full opacity-0 transition-opacity duration-300;
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--color-accent) 28%, transparent) 0%, transparent 65%);
+  filter: blur(10px);
+}
+
+.theme-picker-btn:hover {
+  @apply border-white/20 text-white -translate-y-0.5;
+  box-shadow: 0 12px 36px color-mix(in oklab, var(--color-accent) 22%, transparent), 0 0 0 1px color-mix(in oklab, var(--color-accent) 30%, transparent);
+}
+
+.theme-picker-btn:hover::before {
+  @apply opacity-100;
+}
+
+.theme-picker-btn svg {
+  @apply transition-colors duration-300;
+}
+
+.theme-picker-btn:focus-visible {
+  @apply ring-2 ring-accent-400 ring-offset-2 ring-offset-surface-50;
+}
+
+.theme-icon {
+  color: color-mix(in oklab, var(--color-accent) 82%, white);
+}
+
+.theme-picker-btn:hover .theme-icon {
+  color: var(--color-accent);
+}
+
 .theme-picker-panel {
   @apply absolute right-0 top-12 z-50 rounded-xl border border-white/10 bg-surface-100/95 p-4 shadow-glass backdrop-blur-xl;
   min-width: 180px;
@@ -429,11 +466,17 @@ input:focus, textarea:focus {
 
 /* Theme picker button in light mode */
 .light-mode .theme-picker-btn {
-  @apply border-slate-300 bg-white text-slate-600;
+  @apply border-slate-200 bg-white text-slate-600;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.04);
 }
 
 .light-mode .theme-picker-btn:hover {
-  @apply border-slate-400 bg-slate-50 text-slate-900;
+  @apply border-slate-300 bg-slate-50 text-slate-900;
+  box-shadow: 0 14px 32px color-mix(in oklab, var(--color-accent) 20%, rgba(15, 23, 42, 0.1)), 0 0 0 1px color-mix(in oklab, var(--color-accent) 25%, transparent);
+}
+
+.light-mode .theme-picker-btn::before {
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--color-accent) 22%, transparent) 0%, transparent 70%);
 }
 
 .light-mode .theme-picker-btn svg {
@@ -442,6 +485,14 @@ input:focus, textarea:focus {
 
 .light-mode .theme-picker-btn:hover svg {
   @apply text-slate-700;
+}
+
+.light-mode .theme-icon {
+  color: color-mix(in oklab, var(--color-accent) 82%, #0f172a);
+}
+
+.light-mode .theme-picker-btn:hover .theme-icon {
+  color: var(--color-accent);
 }
 
 /* Theme panel controls in light mode */
@@ -546,6 +597,40 @@ input:focus, textarea:focus {
 ::selection {
   @apply text-white;
   background-color: color-mix(in oklab, var(--color-accent) 30%, transparent);
+}
+
+/* Confetti */
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.confetti-piece {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.95;
+  transform: translate(-50%, -50%);
+  animation: confetti-pop 1s ease-out forwards;
+  --confetti-x: 0px;
+  --confetti-y: -40px;
+  --confetti-rotation: 0deg;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes confetti-pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(calc(-50% + var(--confetti-x)), calc(-50% + var(--confetti-y))) rotate(var(--confetti-rotation));
+  }
+  100% {
+    transform: translate(calc(-50% + var(--confetti-x)), calc(-50% + var(--confetti-y) + 40px)) rotate(calc(var(--confetti-rotation) * 1.5));
+    opacity: 0;
+  }
 }
 
 .light-mode ::selection {

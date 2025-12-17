@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 const themes = [
   { name: 'pink', color: '#ec4899', label: 'Pink' },
@@ -21,6 +21,7 @@ export function ThemePicker() {
   const [isDark, setIsDark] = useState(true);
   const [fontSize, setFontSize] = useState('medium');
   const [mounted, setMounted] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const applyTheme = useCallback((themeName: string, dark: boolean) => {
     const theme = themes.find(t => t.name === themeName) || themes[0];
@@ -44,6 +45,43 @@ export function ThemePicker() {
   const applyFontSize = useCallback((size: string) => {
     const sizeConfig = fontSizes.find(s => s.name === size) || fontSizes[1];
     document.documentElement.style.setProperty('--font-scale', sizeConfig.scale);
+  }, []);
+
+  const launchConfetti = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const button = buttonRef.current;
+    if (!button) return;
+
+    const rect = button.getBoundingClientRect();
+    const originX = rect.left + rect.width / 2;
+    const originY = rect.top + rect.height / 2;
+    const container = document.createElement('div');
+    container.className = 'confetti-layer';
+    document.body.appendChild(container);
+
+    const colors = [...themes.map((theme) => theme.color), '#a855f7'];
+    const pieces = 14;
+
+    for (let i = 0; i < pieces; i++) {
+      const piece = document.createElement('span');
+      piece.className = 'confetti-piece';
+      piece.style.left = `${originX}px`;
+      piece.style.top = `${originY}px`;
+      piece.style.backgroundColor = colors[i % colors.length];
+      piece.style.width = `${4 + Math.random() * 6}px`;
+      piece.style.height = `${6 + Math.random() * 8}px`;
+      piece.style.setProperty('--confetti-x', `${(Math.random() - 0.5) * 160}px`);
+      piece.style.setProperty('--confetti-y', `${-60 + Math.random() * -40}px`);
+      piece.style.setProperty('--confetti-rotation', `${-50 + Math.random() * 100}deg`);
+      piece.style.animationDelay = `${Math.random() * 0.05}s`;
+      container.appendChild(piece);
+    }
+
+    window.setTimeout(() => {
+      container.remove();
+    }, 1200);
   }, []);
 
   useEffect(() => {
@@ -71,6 +109,11 @@ export function ThemePicker() {
     applyTheme(activeTheme, newMode);
   };
 
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev);
+    launchConfetti();
+  };
+
   const handleFontSizeChange = (size: string) => {
     setFontSize(size);
     localStorage.setItem('font-size', size);
@@ -79,8 +122,8 @@ export function ThemePicker() {
 
   if (!mounted) {
     return (
-      <div className="theme-picker-btn flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-surface-100/50">
-        <svg className="h-4 w-4 text-muted-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="theme-picker-btn glow-accent">
+        <svg className="theme-icon h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
         </svg>
       </div>
@@ -90,12 +133,13 @@ export function ThemePicker() {
   return (
     <div className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="theme-picker-btn flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-surface-100/50 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-surface-200/50"
+        onClick={handleToggle}
+        className="theme-picker-btn glow-accent"
+        ref={buttonRef}
         aria-label="Open theme picker"
         type="button"
       >
-        <svg className="h-4 w-4 text-muted-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="theme-icon h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
         </svg>
       </button>

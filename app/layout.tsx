@@ -54,10 +54,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-300">
-                    Experimenting with AI for local government.
+                    © Melanie McDonough
                   </p>
-                  <p className="text-xs text-muted-400">
-                    Personal innovation space. More projects coming soon.
+                  <p className="mt-8 text-xs text-muted-500">
+                    Personal innovation space. Views expressed are my own.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-4 text-sm">
@@ -82,9 +82,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   </Link>
                 </div>
               </div>
-              <p className="mt-8 text-xs text-muted-500">
-                Personal innovation space. Views expressed are my own.
-              </p>
+             
             </footer>
           </div>
         </div>
