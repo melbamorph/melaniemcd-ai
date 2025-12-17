@@ -11,10 +11,9 @@ export default function HomePage() {
             <span className="gradient-text">Local Government</span>
           </h2>
           <p className="text-lg leading-relaxed text-muted-300 text-balance">
-            Solutions Engineer, Gov. Helping cities prototype and ship AI tools for
-            resident-facing services.
+            A personal space for sharing learnings, experiments, and practical approaches 
+            to AI adoption in the public sector. More projects coming soon.
           </p>
-          <p className="text-sm text-muted-400">Chief Innovation and AI Officer, City of Lebanon, NH.</p>
         </div>
 
         <div className="coming-soon-section">
