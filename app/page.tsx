@@ -11,8 +11,8 @@ export default function HomePage() {
             <span className="gradient-text">Local Government</span>
           </h2>
           <p className="text-lg leading-relaxed text-muted-300 text-balance">
-            A personal space for sharing learnings, experiments, and practical approaches 
-            to AI adoption in the public sector. More projects coming soon.
+            A personal sandbox for sharing learnings, experiments, and practical approaches 
+            to AI adoption in the public sector. 
           </p>
         </div>
 
