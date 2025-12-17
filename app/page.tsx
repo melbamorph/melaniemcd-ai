@@ -38,6 +38,7 @@ export default function HomePage() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-400 mb-4">
             Guides
           </p>
+          <p className="text-sm text-muted-300 max-w-xl mb-4">Reusable workflows and implementation notes.</p>
           <div className="grid gap-4 sm:grid-cols-2 max-w-xl">
             <Link
               href="https://melbamorph.me/2025/05/05/civic-roundup-gpt/"
