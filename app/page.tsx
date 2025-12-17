@@ -5,7 +5,7 @@ export default function HomePage() {
     <div className="pt-4">
       <section className="space-y-12">
         <div className="space-y-6 max-w-2xl">
-          <p className="section-title">Innovation Space</p>
+          <p className="section-title">Melanie McDonough</p>
           <h2 className="hero-headline">
             AI Experiments for{' '}
             <span className="gradient-text">Local Government</span>
