@@ -31,14 +31,6 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
-            <div className="coming-soon-card glow-accent">
-              <span className="coming-soon-icon">○</span>
-              <div>
-                <p className="font-medium text-white">Chatbot</p>
-                <p className="text-sm text-muted-400">Conversational AI for civic services</p>
-              </div>
-              <span className="tag tag-coming ml-auto">Soon</span>
-            </div>
           </div>
         </div>
 
