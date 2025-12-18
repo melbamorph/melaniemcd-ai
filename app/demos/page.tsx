@@ -2,17 +2,20 @@ const demos = [
   {
     title: 'Service patterns sandbox',
     description: 'Exploratory prompts and guardrails for common resident questions.',
-    status: 'Draft'
+    status: 'Draft',
+    icon: '🧩'
   },
   {
     title: 'Case triage concept',
     description: 'A guided flow to sort requests and note follow-ups.',
-    status: 'Draft'
+    status: 'Draft',
+    icon: '📋'
   },
   {
     title: 'Resident updates sketch',
     description: 'Lightweight status view and notification idea for in-flight requests.',
-    status: 'Coming soon'
+    status: 'Coming soon',
+    icon: '🔔'
   }
 ];
 
@@ -35,9 +38,12 @@ export default function DemosPage() {
             className="card scroll-fade-in p-6"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <span className={`tag ${demo.status === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
-              {demo.status}
-            </span>
+            <div className="flex items-center justify-between">
+              <span className="text-2xl">{demo.icon}</span>
+              <span className={`tag ${demo.status === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
+                {demo.status}
+              </span>
+            </div>
             <h3 className="mt-4 text-lg font-semibold text-white">{demo.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-400">{demo.description}</p>
           </article>

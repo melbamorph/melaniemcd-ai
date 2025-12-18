@@ -2,17 +2,17 @@ const playbooks = [
   {
     title: 'Rapid discovery sprints',
     detail: 'Lightweight research and mapping kits to align teams in the first two weeks.',
-    icon: '◆'
+    icon: '🚀'
   },
   {
     title: 'Pilot launch kit',
     detail: 'Checklists for governance, risk, and communications to start testing with real users.',
-    icon: '◇'
+    icon: '🧭'
   },
   {
     title: 'Service measurement basics',
     detail: 'Plain-language dashboards and cadences so teams can watch signals early.',
-    icon: '○'
+    icon: '📊'
   }
 ];
 

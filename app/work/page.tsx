@@ -2,17 +2,20 @@ const projects = [
   {
     title: 'Service intake sketch',
     summary: 'A draft flow exploring lighter intake steps and clearer routing for staff.',
-    status: 'Draft'
+    status: 'Draft',
+    icon: '✏️'
   },
   {
     title: 'Channel alignment outline',
     summary: 'Notes on keeping scripts and guidance consistent across support channels.',
-    status: 'Draft'
+    status: 'Draft',
+    icon: '🔗'
   },
   {
     title: 'Assisted navigation idea',
     summary: 'Early notes on a helper that points residents to the right resources and next steps.',
-    status: 'Coming soon'
+    status: 'Coming soon',
+    icon: '🗺️'
   }
 ];
 
@@ -35,9 +38,12 @@ export default function WorkPage() {
             className="card scroll-fade-in p-6"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <span className={`tag ${project.status === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
-              {project.status}
-            </span>
+            <div className="flex items-center justify-between">
+              <span className="text-2xl">{project.icon}</span>
+              <span className={`tag ${project.status === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
+                {project.status}
+              </span>
+            </div>
             <h3 className="mt-4 text-lg font-semibold text-white">{project.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-400">{project.summary}</p>
           </article>
