@@ -320,7 +320,7 @@ input:focus, textarea:focus {
 
 /* Coming soon section */
 .coming-soon-section {
-  @apply pt-8 border-t border-white/[0.05];
+  @apply pt-4;
 }
 
 .coming-soon-card {

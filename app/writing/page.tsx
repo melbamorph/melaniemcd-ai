@@ -18,7 +18,7 @@ const articles = [
 
 export default function WritingPage() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <section className="card p-8 md:p-10">
         <p className="section-title">Writing</p>
         <h2 className="section-heading mt-2">Notes from the field</h2>

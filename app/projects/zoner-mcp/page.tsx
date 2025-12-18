@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ZonerMCPPage() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <section className="card p-8 md:p-10">
         <Link 
           href="/" 

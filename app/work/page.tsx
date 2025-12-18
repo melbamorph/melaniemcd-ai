@@ -18,7 +18,7 @@ const projects = [
 
 export default function WorkPage() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <section className="card p-8 md:p-10">
         <p className="section-title">Work</p>
         <h2 className="section-heading mt-2">Works in progress</h2>

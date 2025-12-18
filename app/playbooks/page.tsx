@@ -18,7 +18,7 @@ const playbooks = [
 
 export default function PlaybooksPage() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <section className="card p-8 md:p-10">
         <p className="section-title">Playbooks</p>
         <h2 className="section-heading mt-2">Reusable guides for lean civic teams</h2>

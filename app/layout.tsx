@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
             <main className="scroll-fade-in">{children}</main>
 
-            <footer className="mt-20 border-t border-white/[0.05] pt-8">
+            <footer className="mt-12 pt-6">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-300">

@@ -4,7 +4,7 @@ import ReflectivePrompt from '@/components/ReflectivePrompt';
 export default function HomePage() {
   return (
     <div className="pt-4">
-      <section className="space-y-12">
+      <section className="space-y-8">
         <div className="space-y-6 max-w-2xl">
           <p className="section-title">Melanie McDonough</p>
           <h2 className="hero-headline">
