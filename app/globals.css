@@ -172,7 +172,8 @@ body {
 
 /* Glassmorphism cards */
 .card {
-  @apply relative rounded-2xl border border-white/[0.18] bg-surface-100/80 backdrop-blur-xl shadow-glass transition-all duration-300;
+  @apply relative rounded-2xl border-2 bg-surface-100/80 backdrop-blur-xl shadow-glass transition-all duration-300;
+  border-color: color-mix(in oklab, var(--color-accent) 50%, transparent);
 }
 
 .card::before {
@@ -181,7 +182,8 @@ body {
 }
 
 .card:hover {
-  @apply border-white/[0.28] shadow-glow -translate-y-1;
+  @apply shadow-glow -translate-y-1;
+  border-color: color-mix(in oklab, var(--color-accent) 70%, transparent);
 }
 
 .card:focus-within {
@@ -190,7 +192,8 @@ body {
 }
 
 .card-muted {
-  @apply rounded-2xl border border-white/[0.12] bg-surface-200/50 backdrop-blur-sm;
+  @apply rounded-2xl border bg-surface-200/50 backdrop-blur-sm;
+  border-color: color-mix(in oklab, var(--color-accent) 30%, transparent);
 }
 
 /* Section typography */
@@ -468,7 +471,8 @@ input:focus, textarea:focus {
 }
 
 .light-mode .card {
-  @apply border-slate-300/70 bg-white/80;
+  @apply bg-white/80;
+  border-color: color-mix(in oklab, var(--color-accent) 60%, transparent);
 }
 
 .light-mode .card::before {
@@ -476,11 +480,12 @@ input:focus, textarea:focus {
 }
 
 .light-mode .card:hover {
-  @apply border-slate-400/70;
+  border-color: color-mix(in oklab, var(--color-accent) 80%, transparent);
 }
 
 .light-mode .card-muted {
-  @apply border-slate-300/60 bg-slate-100/50;
+  @apply bg-slate-100/50;
+  border-color: color-mix(in oklab, var(--color-accent) 40%, transparent);
 }
 
 .light-mode .nav-link {
