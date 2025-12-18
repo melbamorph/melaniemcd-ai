@@ -119,6 +119,57 @@ body {
   @apply outline-none ring-2 ring-accent-400 ring-offset-2 ring-offset-surface-50 rounded-lg;
 }
 
+/* Mobile menu - theme aware */
+.mobile-menu {
+  background: rgba(18, 18, 26, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-text {
+  color: #ffffff;
+}
+
+.mobile-menu-text:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-muted {
+  color: #9ca3af;
+}
+
+.mobile-menu-muted:hover {
+  color: #ffffff;
+}
+
+.mobile-menu-border {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.light-mode .mobile-menu {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .mobile-menu-text {
+  color: #1f2937;
+}
+
+.light-mode .mobile-menu-text:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .mobile-menu-muted {
+  color: #6b7280;
+}
+
+.light-mode .mobile-menu-muted:hover {
+  color: #1f2937;
+}
+
+.light-mode .mobile-menu-border {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
 /* Glassmorphism cards */
 .card {
   @apply relative rounded-2xl border border-white/[0.08] bg-surface-100/80 backdrop-blur-xl shadow-glass transition-all duration-300;

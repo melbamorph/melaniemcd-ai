@@ -79,11 +79,11 @@ export function Header() {
             aria-hidden="true"
           />
           <div className="fixed inset-x-0 top-0 z-50 p-4 sm:hidden">
-            <nav className="rounded-2xl border border-white/10 bg-[#12121a]/95 p-6 shadow-2xl backdrop-blur-xl">
+            <nav className="mobile-menu rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
               <div className="mb-6 flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-400">Menu</span>
+                <span className="text-sm font-medium mobile-menu-muted">Menu</span>
                 <button
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-white/10 hover:text-white"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg mobile-menu-muted transition-colors hover:bg-black/10 dark-mode:hover:bg-white/10"
                   onClick={() => setIsMenuOpen(false)}
                   aria-label="Close menu"
                 >
@@ -100,7 +100,7 @@ export function Header() {
                     className={`rounded-lg px-4 py-3 text-lg font-medium transition-colors ${
                       pathname === link.href
                         ? 'bg-accent-400/10 text-accent-400'
-                        : 'text-white hover:bg-white/10'
+                        : 'mobile-menu-text'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -108,9 +108,9 @@ export function Header() {
                   </Link>
                 ))}
               </div>
-              <div className="mt-6 flex gap-4 border-t border-white/10 pt-6">
+              <div className="mt-6 flex gap-4 border-t mobile-menu-border pt-6">
                 <a
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  className="text-sm mobile-menu-muted transition-colors"
                   href="https://github.com/melbamorph"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -118,7 +118,7 @@ export function Header() {
                   GitHub
                 </a>
                 <a
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  className="text-sm mobile-menu-muted transition-colors"
                   href="https://www.linkedin.com/in/melaniemcdonough/"
                   rel="noopener noreferrer"
                   target="_blank"
