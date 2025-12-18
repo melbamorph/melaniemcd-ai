@@ -172,7 +172,7 @@ body {
 
 /* Glassmorphism cards */
 .card {
-  @apply relative rounded-2xl border border-white/[0.08] bg-surface-100/80 backdrop-blur-xl shadow-glass transition-all duration-300;
+  @apply relative rounded-2xl border border-white/[0.18] bg-surface-100/80 backdrop-blur-xl shadow-glass transition-all duration-300;
 }
 
 .card::before {
@@ -181,7 +181,7 @@ body {
 }
 
 .card:hover {
-  @apply border-white/[0.12] shadow-glow -translate-y-1;
+  @apply border-white/[0.28] shadow-glow -translate-y-1;
 }
 
 .card:focus-within {
@@ -190,7 +190,7 @@ body {
 }
 
 .card-muted {
-  @apply rounded-2xl border border-white/[0.05] bg-surface-200/50 backdrop-blur-sm;
+  @apply rounded-2xl border border-white/[0.12] bg-surface-200/50 backdrop-blur-sm;
 }
 
 /* Section typography */
@@ -468,7 +468,7 @@ input:focus, textarea:focus {
 }
 
 .light-mode .card {
-  @apply border-slate-200/50 bg-white/80;
+  @apply border-slate-300/70 bg-white/80;
 }
 
 .light-mode .card::before {
@@ -476,11 +476,11 @@ input:focus, textarea:focus {
 }
 
 .light-mode .card:hover {
-  @apply border-slate-300/50;
+  @apply border-slate-400/70;
 }
 
 .light-mode .card-muted {
-  @apply border-slate-200/50 bg-slate-100/50;
+  @apply border-slate-300/60 bg-slate-100/50;
 }
 
 .light-mode .nav-link {
