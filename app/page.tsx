@@ -24,7 +24,7 @@ export default function HomePage() {
           </p>
           <div className="grid gap-4 sm:grid-cols-2 max-w-xl">
             <Link href="/projects/zoner-mcp" className="coming-soon-card glow-accent group cursor-pointer">
-              <span className="coming-soon-icon">◇</span>
+              <span className="coming-soon-icon text-xl">🔌</span>
               <div>
                 <p className="font-medium text-white group-hover:text-accent-400 transition-colors">Zoner MCP</p>
                 <p className="text-sm text-muted-400">Model Context Protocol experiments</p>
@@ -48,7 +48,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="coming-soon-icon">◇</span>
+              <span className="coming-soon-icon text-xl">📰</span>
               <div>
                 <p className="font-medium text-white group-hover:text-accent-400 transition-colors">
                   Civic RoundUp: Turning RSS Feeds into Resident-Ready Newsletters with a Custom GPT
@@ -67,7 +67,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="coming-soon-icon">△</span>
+              <span className="coming-soon-icon text-xl">⚡</span>
               <div>
                 <p className="font-medium text-white group-hover:text-accent-400 transition-colors">
                   Automate Your Municipal Workflow with ChatGPT Tasks
