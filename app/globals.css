@@ -173,7 +173,7 @@ body {
 /* Glassmorphism cards */
 .card {
   @apply relative rounded-2xl border-2 bg-surface-100/80 backdrop-blur-xl shadow-glass transition-all duration-300;
-  border-color: color-mix(in oklab, var(--color-accent) 50%, transparent);
+  border-color: var(--color-accent);
 }
 
 .card::before {
@@ -183,7 +183,7 @@ body {
 
 .card:hover {
   @apply shadow-glow -translate-y-1;
-  border-color: color-mix(in oklab, var(--color-accent) 70%, transparent);
+  border-color: var(--color-accent);
 }
 
 .card:focus-within {
@@ -192,8 +192,8 @@ body {
 }
 
 .card-muted {
-  @apply rounded-2xl border bg-surface-200/50 backdrop-blur-sm;
-  border-color: color-mix(in oklab, var(--color-accent) 30%, transparent);
+  @apply rounded-2xl border-2 bg-surface-200/50 backdrop-blur-sm;
+  border-color: color-mix(in oklab, var(--color-accent) 70%, transparent);
 }
 
 /* Section typography */
@@ -471,8 +471,8 @@ input:focus, textarea:focus {
 }
 
 .light-mode .card {
-  @apply bg-white/80;
-  border-color: color-mix(in oklab, var(--color-accent) 60%, transparent);
+  @apply border-2 bg-white/80;
+  border-color: var(--color-accent);
 }
 
 .light-mode .card::before {
@@ -480,12 +480,12 @@ input:focus, textarea:focus {
 }
 
 .light-mode .card:hover {
-  border-color: color-mix(in oklab, var(--color-accent) 80%, transparent);
+  border-color: var(--color-accent);
 }
 
 .light-mode .card-muted {
-  @apply bg-slate-100/50;
-  border-color: color-mix(in oklab, var(--color-accent) 40%, transparent);
+  @apply border-2 bg-slate-100/50;
+  border-color: color-mix(in oklab, var(--color-accent) 70%, transparent);
 }
 
 .light-mode .nav-link {
