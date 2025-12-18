@@ -52,10 +52,25 @@ export default function ContactPage() {
     event.preventDefault();
     setStatus('idle');
 
-    await new Promise((resolve) => setTimeout(resolve, 250));
-    setStatus('success');
-    setEmail('');
-    triggerConfetti();
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to subscribe');
+      }
+
+      setStatus('success');
+      setEmail('');
+      triggerConfetti();
+    } catch (error) {
+      console.error('Subscription error:', error);
+      setStatus('error');
+    }
   };
 
   const triggerConfetti = async () => {
@@ -195,7 +210,16 @@ export default function ContactPage() {
                     <svg className="h-5 w-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>All set! A confirmation will arrive shortly.</span>
+                    <span>You&apos;re subscribed! Thanks for joining.</span>
+                  </div>
+                )}
+                
+                {status === 'error' && (
+                  <div className="flex items-center gap-2 rounded-lg bg-red-500/10 p-3 text-sm text-red-400">
+                    <svg className="h-5 w-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Something went wrong. Please try again.</span>
                   </div>
                 )}
               </form>

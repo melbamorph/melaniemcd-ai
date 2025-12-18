@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
-import { ThemePicker } from '@/components/ThemePicker';
+import { Header } from '@/components/Header';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -13,12 +13,6 @@ export const metadata: Metadata = {
     'A personal innovation space for sharing AI experiments and learnings focused on local government and civic technology.'
 };
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' }
-];
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} bg-surface-50`}>
@@ -27,26 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="fixed inset-0 grid-pattern pointer-events-none opacity-50" aria-hidden="true" />
           
           <div className="relative mx-auto max-w-6xl px-6 py-8 lg:px-8 lg:py-12">
-            <header className="mb-8 flex items-center justify-end gap-4">
-              <nav className="hidden items-center gap-1 sm:flex" aria-label="Main navigation">
-                {navLinks.map((link) => (
-                  <Link key={link.href} className="nav-link" href={link.href}>
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-              
-              <ThemePicker />
-              
-              <button 
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-muted-300 transition-colors hover:bg-surface-200 hover:text-white sm:hidden"
-                aria-label="Open menu"
-              >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </header>
+            <Header />
 
             <main className="scroll-fade-in">{children}</main>
 
