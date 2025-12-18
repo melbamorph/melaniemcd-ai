@@ -324,7 +324,7 @@ input:focus, textarea:focus {
 }
 
 .coming-soon-card {
-  @apply flex items-start gap-4 p-4 rounded-xl border-2 bg-surface-100/40 backdrop-blur-sm transition-all duration-300;
+  @apply flex items-start gap-4 p-4 rounded-xl border bg-surface-100/40 backdrop-blur-sm transition-all duration-300;
   border-color: var(--color-accent);
   background: color-mix(in oklab, var(--color-surface-elevated) 80%, transparent);
 }
@@ -514,7 +514,7 @@ input:focus, textarea:focus {
 }
 
 .light-mode .coming-soon-card {
-  @apply border-2 bg-white/60;
+  @apply border bg-white/60;
   border-color: var(--color-accent);
 }
 
