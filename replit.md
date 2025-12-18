@@ -26,6 +26,8 @@ A minimal Next.js 14 landing page serving as a personal innovation space for sha
 ## Project Structure
 ```
 app/
+  api/
+    subscribe/route.ts # Newsletter subscription API
   about/page.tsx       # About page (active)
   contact/page.tsx     # Contact page (active)
   demos/page.tsx       # AI demo concepts (hidden for now)
@@ -37,7 +39,11 @@ app/
   page.tsx             # Minimal home/landing page
 
 components/
+  Header.tsx           # Header with mobile menu
   ThemePicker.tsx      # Theme/accent color picker
+
+lib/
+  db.ts                # PostgreSQL database connection
 ```
 
 ## Routes
@@ -70,10 +76,13 @@ The `/projects/zoner-mcp/page.tsx` serves as a template for future project pages
 - **Next.js 14.2.35** (App Router)
 - **Tailwind CSS 3.4.4** with custom design tokens
 - **TypeScript 5.5.4**
+- **PostgreSQL** with pg library for newsletter subscribers
 - **canvas-confetti** for subscribe celebration
 - **Node.js 20+**
 
 ## Key Features
+- **Functional mobile menu** with slide-in panel, escape key, and backdrop dismiss
+- **Newsletter subscription** saves emails to PostgreSQL database via API
 - Unified contact page with LinkedIn and newsletter subscribe in a two-column layout
 - Subscribe modal with focus trap, form validation, and reduced-motion confetti
 - Scroll-based reveal animations
