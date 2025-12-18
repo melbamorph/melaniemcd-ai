@@ -10,16 +10,18 @@ const themes = [
 ];
 
 const fontSizes = [
-  { name: 'small', label: 'S', scale: '0.9' },
-  { name: 'medium', label: 'M', scale: '1' },
-  { name: 'large', label: 'L', scale: '1.1' },
+  { name: 'small', label: 'S', scale: '1.1' },
+  { name: 'medium', label: 'M', scale: '1.25' },
+  { name: 'large', label: 'L', scale: '1.4' },
 ];
+
+const DEFAULT_FONT_SIZE = 'medium';
 
 export function ThemePicker() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTheme, setActiveTheme] = useState('pink');
   const [isDark, setIsDark] = useState(true);
-  const [fontSize, setFontSize] = useState('medium');
+  const [fontSize, setFontSize] = useState(DEFAULT_FONT_SIZE);
   const [mounted, setMounted] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -43,7 +45,10 @@ export function ThemePicker() {
   }, []);
 
   const applyFontSize = useCallback((size: string) => {
-    const sizeConfig = fontSizes.find(s => s.name === size) || fontSizes[1];
+    const sizeConfig =
+      fontSizes.find((s) => s.name === size) ||
+      fontSizes.find((s) => s.name === DEFAULT_FONT_SIZE) ||
+      fontSizes[0];
     document.documentElement.style.setProperty('--font-scale', sizeConfig.scale);
   }, []);
 
@@ -88,7 +93,7 @@ export function ThemePicker() {
     setMounted(true);
     const savedTheme = localStorage.getItem('accent-theme') || 'pink';
     const savedMode = localStorage.getItem('color-mode') || 'dark';
-    const savedFontSize = localStorage.getItem('font-size') || 'medium';
+    const savedFontSize = localStorage.getItem('font-size') || DEFAULT_FONT_SIZE;
     setActiveTheme(savedTheme);
     setIsDark(savedMode === 'dark');
     setFontSize(savedFontSize);
