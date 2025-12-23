@@ -6,7 +6,7 @@ A minimal Next.js 14 landing page serving as a personal innovation space for sha
 ## Current State
 - **Minimal landing page** with hero, coming soon teaser (Zoner MCP, Chatbot), and social links
 - **Simplified navigation**: Home, About, Contact
-- **Hidden for now**: Work, Demos, Playbooks, Writing (pages exist but not linked)
+- **Hidden for now**: Projects, Demos, Playbooks, Writing (pages exist but not linked)
 - **Social links**: GitHub and LinkedIn prominently displayed
 
 ## Design System
@@ -32,7 +32,7 @@ app/
   contact/page.tsx     # Contact page (active)
   demos/page.tsx       # AI demo concepts (hidden for now)
   playbooks/page.tsx   # Reusable guides (hidden for now)
-  work/page.tsx        # Work samples (hidden for now)
+  projects/page.tsx    # Projects listing (hidden for now)
   writing/page.tsx     # Articles (hidden for now)
   globals.css          # Design system + animations
   layout.tsx           # Root layout with nav
@@ -54,7 +54,7 @@ Active routes:
 - `/projects/zoner-mcp` - Zoner MCP project detail page
 
 Hidden routes (pages exist, nav links removed):
-- `/work` - Work samples
+- `/projects` - Projects listing
 - `/demos` - AI sandbox concepts
 - `/playbooks` - Lean team guides
 - `/writing` - Field notes
