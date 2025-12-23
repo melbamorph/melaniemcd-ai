@@ -239,6 +239,31 @@ input:focus, textarea:focus {
   text-wrap: balance;
 }
 
+.reflective-prompt {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: reflectivePromptFade 600ms ease-out forwards;
+}
+
+@keyframes reflectivePromptFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reflective-prompt {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Coming soon section */
 .coming-soon-section {
   @apply pt-8 border-t border-white/[0.05];

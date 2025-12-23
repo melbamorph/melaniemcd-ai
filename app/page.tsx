@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ReflectivePrompt from '@/components/ReflectivePrompt';
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
             AI Experiments for{' '}
             <span className="gradient-text">Local Government</span>
           </h2>
+          <ReflectivePrompt />
           <p className="text-lg leading-relaxed text-muted-300 text-balance">
             A personal sandbox for sharing learnings, experiments, and practical approaches 
             to AI adoption in the public sector. 
