@@ -219,11 +219,33 @@ body {
 }
 
 .button-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/[0.1] bg-surface-200/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300;
+  @apply relative inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-surface-100/60 px-5 py-3 text-sm font-semibold text-muted-300 backdrop-blur-sm transition-all duration-300;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.button-secondary::before {
+  content: '';
+  @apply absolute inset-0 rounded-full opacity-0 transition-opacity duration-300;
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--color-accent) 28%, transparent) 0%, transparent 65%);
+  filter: blur(10px);
 }
 
 .button-secondary:hover {
-  @apply border-white/[0.2] bg-surface-300/50 -translate-y-0.5;
+  @apply border-white/20 text-white -translate-y-0.5;
+  box-shadow: 0 12px 36px color-mix(in oklab, var(--color-accent) 22%, transparent), 0 0 0 1px color-mix(in oklab, var(--color-accent) 30%, transparent);
+}
+
+.button-secondary:hover::before {
+  @apply opacity-100;
+}
+
+.button-secondary svg {
+  @apply transition-colors duration-300;
+  color: color-mix(in oklab, var(--color-accent) 82%, white);
+}
+
+.button-secondary:hover svg {
+  color: var(--color-accent);
 }
 
 .button-secondary:focus-visible {
@@ -615,11 +637,25 @@ input:focus, textarea:focus {
 
 /* Button overrides for light mode */
 .light-mode .button-secondary {
-  @apply border-slate-200 bg-white/80 text-slate-700;
+  @apply border-slate-200 bg-white text-slate-600;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.04);
 }
 
 .light-mode .button-secondary:hover {
-  @apply border-slate-300 bg-slate-100/80 text-slate-900;
+  @apply border-slate-300 bg-slate-50 text-slate-900;
+  box-shadow: 0 14px 32px color-mix(in oklab, var(--color-accent) 20%, rgba(15, 23, 42, 0.1)), 0 0 0 1px color-mix(in oklab, var(--color-accent) 25%, transparent);
+}
+
+.light-mode .button-secondary::before {
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--color-accent) 22%, transparent) 0%, transparent 70%);
+}
+
+.light-mode .button-secondary svg {
+  color: color-mix(in oklab, var(--color-accent) 82%, #0f172a);
+}
+
+.light-mode .button-secondary:hover svg {
+  color: var(--color-accent);
 }
 
 /* Form elements in light mode */
