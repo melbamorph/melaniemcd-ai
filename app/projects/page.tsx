@@ -1,25 +1,9 @@
-const projects = [
-  {
-    title: 'Service intake sketch',
-    summary: 'A draft flow exploring lighter intake steps and clearer routing for staff.',
-    status: 'Draft',
-    icon: '✏️'
-  },
-  {
-    title: 'Channel alignment outline',
-    summary: 'Notes on keeping scripts and guidance consistent across support channels.',
-    status: 'Draft',
-    icon: '🔗'
-  },
-  {
-    title: 'Assisted navigation idea',
-    summary: 'Early notes on a helper that points residents to the right resources and next steps.',
-    status: 'Coming soon',
-    icon: '🗺️'
-  }
-];
+import Link from 'next/link';
+import { getAllProjects } from '@/lib/projects';
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getAllProjects();
+
   return (
     <div className="px-2 py-8 md:py-10">
       <p className="section-title">Projects</p>
@@ -32,21 +16,33 @@ export default function ProjectsPage() {
       <div className="mt-10 space-y-8">
         {projects.map((project, index) => (
           <article 
-            key={project.title} 
+            key={project.slug} 
             className="scroll-fade-in border-b border-muted-400/20 pb-8 last:border-b-0 last:pb-0"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="flex items-center gap-3">
-              <span className="text-xl">{project.icon}</span>
-              <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-              <span className={`tag ${project.status === 'Draft' ? 'tag-draft' : 'tag-coming'}`}>
-                {project.status}
-              </span>
-            </div>
-            <p className="mt-3 text-sm leading-relaxed text-muted-300">{project.summary}</p>
+            <Link href={`/projects/${project.slug}`} className="block group">
+              <div className="flex items-center gap-3">
+                <span className="text-xl">{project.icon}</span>
+                <h3 className="text-lg font-semibold text-white group-hover:text-accent-400 transition-colors">
+                  {project.title}
+                </h3>
+                <span className={`tag ${
+                  project.status === 'Draft' ? 'tag-draft' : 
+                  project.status === 'Coming soon' ? 'tag-coming' : 
+                  'tag-draft'
+                }`}>
+                  {project.status}
+                </span>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-300">{project.summary}</p>
+            </Link>
           </article>
         ))}
       </div>
+
+      {projects.length === 0 && (
+        <p className="mt-10 text-sm text-muted-400">No projects yet. Check back soon!</p>
+      )}
     </div>
   );
 }
