@@ -22,10 +22,27 @@ export default function ZonerMCPPage() {
       </div>
       
       <p className="text-lg leading-relaxed text-muted-300 max-w-3xl">
-        A Model Context Protocol server that powers zoning lookups for AI agents. 
-        Transform street addresses into zoning data for Lebanon, NH, and plug into 
-        any OpenAI Agent Builder or ChatKit workflow.
+        A Model Context Protocol server that powers zoning lookups for AI agents. Transform street addresses into zoning data for Lebanon, NH, and plug into any OpenAI Agent Builder or ChatKit workflow.
       </p>
+
+      
+
+<br></br>
+      <section className="mb-10">
+        <h2 className="text-lg font-semibold text-white">What It Does</h2>
+        <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-muted-300">
+          <p>
+            ZonerMCP is a minimal, reusable MCP server template designed for use with 
+            OpenAI Agent Builder and other MCP-compatible AI platforms. It uses Streamable 
+            HTTP transport for broad compatibility.
+          </p>
+          <p>
+            The server takes a street address and returns zoning information, enabling AI 
+            agents to answer questions like &quot;What zone is 123 Main Street in?&quot; or 
+            &quot;Can I build a duplex at this address?&quot;
+          </p>
+        </div>
+      </section>
 
       <div className="flex flex-wrap gap-3 mt-6">
         <a
@@ -51,117 +68,7 @@ export default function ZonerMCPPage() {
           Live Demo
         </a>
       </div>
-
-      <hr className="my-10 border-white/[0.08]" />
-
-      <section className="mb-10">
-        <h2 className="text-lg font-semibold text-white">What It Does</h2>
-        <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-muted-300">
-          <p>
-            ZonerMCP is a minimal, reusable MCP server template designed for use with 
-            OpenAI Agent Builder and other MCP-compatible AI platforms. It uses Streamable 
-            HTTP transport for broad compatibility.
-          </p>
-          <p>
-            The server takes a street address and returns zoning information, enabling AI 
-            agents to answer questions like &quot;What zone is 123 Main Street in?&quot; or 
-            &quot;Can I build a duplex at this address?&quot;
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-lg font-semibold text-white">Design Philosophy</h2>
-        <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-muted-300">
-          <p>
-            This template is intentionally <strong className="text-white">minimal and UI-agnostic</strong>. 
-            It provides only the MCP server infrastructure, allowing you to:
-          </p>
-          <ul className="list-disc list-inside space-y-2 ml-2">
-            <li>Connect it to any AI interface (OpenAI Agent Builder, Claude, custom UIs)</li>
-            <li>Build your own frontend or use existing AI chat interfaces</li>
-            <li>Focus on your business logic without UI constraints</li>
-            <li>Deploy as a standalone microservice</li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-lg font-semibold text-white">Tech Stack</h2>
-        <div className="mt-4 flex flex-wrap gap-2">
-          <span className="tag tag-draft">Node.js 18+</span>
-          <span className="tag tag-draft">MCP Protocol</span>
-          <span className="tag tag-draft">Express</span>
-          <span className="tag tag-draft">ArcGIS REST API</span>
-          <span className="tag tag-draft">Streamable HTTP</span>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-lg font-semibold text-white">Key Features</h2>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <div className="p-4 rounded-xl bg-surface-200/30 border border-white/[0.05]">
-            <h3 className="font-medium text-white mb-2">Streamable HTTP Transport</h3>
-            <p className="text-sm text-muted-400">Works with OpenAI Agent Builder and MCP Inspector</p>
-          </div>
-          <div className="p-4 rounded-xl bg-surface-200/30 border border-white/[0.05]">
-            <h3 className="font-medium text-white mb-2">Stateless Client Support</h3>
-            <p className="text-sm text-muted-400">Auto-initializes sessions for clients that don&apos;t handle the MCP handshake</p>
-          </div>
-          <div className="p-4 rounded-xl bg-surface-200/30 border border-white/[0.05]">
-            <h3 className="font-medium text-white mb-2">CORS Enabled</h3>
-            <p className="text-sm text-muted-400">Ready for cross-origin requests out of the box</p>
-          </div>
-          <div className="p-4 rounded-xl bg-surface-200/30 border border-white/[0.05]">
-            <h3 className="font-medium text-white mb-2">Health Check Endpoint</h3>
-            <p className="text-sm text-muted-400">Built-in monitoring and load balancer support</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-lg font-semibold text-white">API Endpoints</h2>
-        <div className="mt-4 overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-white/[0.1]">
-                <th className="text-left py-3 px-4 text-muted-400 font-medium">Endpoint</th>
-                <th className="text-left py-3 px-4 text-muted-400 font-medium">Method</th>
-                <th className="text-left py-3 px-4 text-muted-400 font-medium">Description</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted-300">
-              <tr className="border-b border-white/[0.05]">
-                <td className="py-3 px-4 font-mono text-accent-400">/mcp</td>
-                <td className="py-3 px-4">POST</td>
-                <td className="py-3 px-4">Main MCP endpoint (initialize, tools/list, tools/call)</td>
-              </tr>
-              <tr className="border-b border-white/[0.05]">
-                <td className="py-3 px-4 font-mono text-accent-400">/mcp</td>
-                <td className="py-3 px-4">GET</td>
-                <td className="py-3 px-4">Server info or SSE stream (with session)</td>
-              </tr>
-              <tr className="border-b border-white/[0.05]">
-                <td className="py-3 px-4 font-mono text-accent-400">/mcp</td>
-                <td className="py-3 px-4">DELETE</td>
-                <td className="py-3 px-4">Session termination</td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-mono text-accent-400">/health</td>
-                <td className="py-3 px-4">GET</td>
-                <td className="py-3 px-4">Health check</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-lg font-semibold text-white">License</h2>
-        <p className="mt-4 text-sm text-muted-300">
-          ISC License - Open source and free to use, modify, and distribute.
-        </p>
-      </section>
+    
     </div>
   );
 }
