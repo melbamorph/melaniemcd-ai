@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react';
 const PROMPTS = [
   'What if government systems were designed to be delightful?',
   'What if public services felt easier than ordering takeout?',
-  'What if permits and forms were designed with empathy?',
-  'What if policy was written for humans first?',
+  'What if permits and forms could be completed without friction?',
   'What if civic tech invited play, not frustration?',
-  'What if bureaucracy had better user experience than the private sector?',
+  'What if gov interfaces had better user experience than the private sector?',
   'What if the most "serious" work also made room for wonder?',
 ];
 
