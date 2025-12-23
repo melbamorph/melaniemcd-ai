@@ -13,30 +13,29 @@ export default async function ProjectsPage() {
         This collection will evolve over time.
       </p>
 
-      <div className="mt-10 space-y-8">
+      <div className="mt-10 space-y-6">
         {projects.map((project, index) => (
-          <article 
+          <Link 
             key={project.slug} 
-            className="scroll-fade-in border-b border-muted-400/20 pb-8 last:border-b-0 last:pb-0"
+            href={`/projects/${project.slug}`}
+            className="card scroll-fade-in p-6 md:p-8 block group hover:border-accent-400/30 transition-colors"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <Link href={`/projects/${project.slug}`} className="block group">
-              <div className="flex items-center gap-3">
-                <span className="text-xl">{project.icon}</span>
-                <h3 className="text-lg font-semibold text-white group-hover:text-accent-400 transition-colors">
-                  {project.title}
-                </h3>
-                <span className={`tag ${
-                  project.status === 'Draft' ? 'tag-draft' : 
-                  project.status === 'Coming soon' ? 'tag-coming' : 
-                  'tag-draft'
-                }`}>
-                  {project.status}
-                </span>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-300">{project.summary}</p>
-            </Link>
-          </article>
+            <div className="flex items-center gap-3">
+              <span className="text-xl">{project.icon}</span>
+              <h3 className="text-lg font-semibold text-white group-hover:text-accent-400 transition-colors">
+                {project.title}
+              </h3>
+              <span className={`tag ${
+                project.status === 'Draft' ? 'tag-draft' : 
+                project.status === 'Coming soon' ? 'tag-coming' : 
+                'tag-draft'
+              }`}>
+                {project.status}
+              </span>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-muted-300">{project.summary}</p>
+          </Link>
         ))}
       </div>
 
