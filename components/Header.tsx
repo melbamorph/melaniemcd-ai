@@ -54,7 +54,7 @@ export function Header() {
         <ThemePicker />
         
         <button 
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-muted-300 transition-colors hover:bg-surface-200 hover:text-white sm:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-muted-300 transition-colors hover:bg-surface-200 hover:text-white sm:hidden"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -78,8 +78,8 @@ export function Header() {
             onClick={() => setIsMenuOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed inset-x-0 top-0 z-50 p-4 sm:hidden">
-            <nav className="mobile-menu rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
+          <div className="fixed inset-x-0 top-0 z-50 p-5 sm:hidden">
+            <nav className="mobile-menu rounded-2xl p-7 shadow-2xl backdrop-blur-xl">
               <div className="mb-6 flex items-center justify-between">
                 <span className="text-sm font-medium mobile-menu-muted">Menu</span>
                 <button

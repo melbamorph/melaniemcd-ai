@@ -36,8 +36,8 @@ export default function ReflectivePrompt() {
   }, []);
 
   return (
-    <p className="reflective-prompt text-sm sm:text-base text-muted-300 sm:whitespace-nowrap">
-      {prompt}
+    <p className="reflective-prompt text-base sm:text-lg text-accent-300 font-medium italic">
+      &ldquo;{prompt}&rdquo;
     </p>
   );
 }

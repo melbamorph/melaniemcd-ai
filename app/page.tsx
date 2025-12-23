@@ -5,21 +5,31 @@ export default function HomePage() {
   return (
     <div className="pt-4">
       <section className="space-y-8">
-        <div className="space-y-6 max-w-2xl">
+        <div className="space-y-4 max-w-2xl">
           <p className="section-title">Melanie McDonough</p>
           <h2 className="hero-headline">
             AI Experiments for{' '}
             <span className="gradient-text">Local Government</span>
           </h2>
-          <ReflectivePrompt />
-          <p className="text-lg leading-relaxed text-muted-300 text-balance">
+          <div className="pt-1">
+            <ReflectivePrompt />
+          </div>
+          <p className="text-lg leading-relaxed text-muted-300 text-balance pt-2">
             A personal sandbox for sharing learnings, experiments, and practical approaches 
             to AI adoption in the public sector. 
           </p>
+          <div className="pt-2">
+            <a href="#projects" className="button-secondary inline-flex items-center gap-2 text-sm">
+              <span>Explore Projects</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <div className="coming-soon-section">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-400 mb-4">
+        <div id="projects" className="coming-soon-section scroll-mt-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-400 mb-4">
             Projects
           </p>
           <div className="grid gap-4 sm:grid-cols-2 max-w-xl">
@@ -35,11 +45,20 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
+            <div className="coming-soon-card opacity-60 cursor-default border-dashed">
+              <svg className="w-5 h-5 text-muted-500 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <div>
+                <p className="font-medium text-muted-400">Coming Soon</p>
+                <p className="text-sm text-muted-500">More experiments in progress</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="coming-soon-section">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-400 mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-400 mb-4">
             Guides
           </p>
           <p className="text-sm text-muted-300 max-w-xl mb-4">Reusable workflows and implementation notes.</p>
