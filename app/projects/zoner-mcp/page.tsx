@@ -15,7 +15,7 @@ export default function ZonerMCPPage() {
         </Link>
         
         <div className="flex items-start gap-4 mb-6">
-          <span className="text-3xl mt-1">◇</span>
+          <span className="text-3xl mt-1">✿</span>
           <div>
             <p className="section-title">Project</p>
             <h1 className="section-heading mt-2">Zoner MCP</h1>

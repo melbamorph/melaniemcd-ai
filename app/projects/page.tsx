@@ -7,10 +7,10 @@ export default async function ProjectsPage() {
   return (
     <div className="px-2 py-8 md:py-10">
       <p className="section-title">Projects</p>
-      <h2 className="section-heading mt-2">Projects in progress</h2>
+      <h2 className="section-heading mt-2">In progress</h2>
       <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-300">
-        A snapshot of current explorations focused on practical AI use in city services. 
-        These drafts will evolve with more detail and implementation notes.
+        A current collection of projects and experiments under development.
+        This collection will evolve over time.
       </p>
 
       <div className="mt-10 space-y-8">
