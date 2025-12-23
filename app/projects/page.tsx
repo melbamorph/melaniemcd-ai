@@ -18,7 +18,7 @@ export default async function ProjectsPage() {
           <Link 
             key={project.slug} 
             href={`/projects/${project.slug}`}
-            className="card scroll-fade-in p-6 md:p-8 block group hover:border-accent-400/30 transition-colors"
+            className="card glow-accent scroll-fade-in p-6 md:p-8 block group"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             <div className="flex items-center gap-3">
