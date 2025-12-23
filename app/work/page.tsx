@@ -21,7 +21,7 @@ const projects = [
 
 export default function WorkPage() {
   return (
-    <div className="card p-8 md:p-10">
+    <div className="px-2 py-8 md:py-10">
       <p className="section-title">Work</p>
       <h2 className="section-heading mt-2">Works in progress</h2>
       <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-300">
