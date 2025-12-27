@@ -2,35 +2,55 @@ import Link from 'next/link';
 import ReflectivePrompt from '@/components/ReflectivePrompt';
 
 export default function HomePage() {
+  const heroVideoSrc = '/videos/hero.mp4';
+
   return (
     <div className="pt-4">
-      <section className="space-y-8">
-        <div className="space-y-4 max-w-2xl">
-          <p className="section-title">Melanie McDonough</p>
-          <h2 className="hero-headline">
-            AI Experiments for{' '}
-            <span className="gradient-text">Local Government</span>
-          </h2>
-          <div className="pt-1">
-            <ReflectivePrompt />
+      <section className="space-y-10">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
+          <div className="space-y-4 max-w-2xl">
+            <p className="section-title">Melanie McDonough</p>
+            <h2 className="hero-headline">
+              AI Experiments for{' '}
+              <span className="gradient-text">Local Government</span>
+            </h2>
+            <div className="pt-1">
+              <ReflectivePrompt />
+            </div>
+            <p className="text-lg leading-relaxed text-muted-300 text-balance pt-2">
+              A personal sandbox for sharing learnings, experiments, and practical approaches 
+              to AI adoption in the public sector. 
+            </p>
+            <div className="pt-2 flex flex-wrap gap-3">
+              <a href="/projects" className="button-secondary inline-flex items-center gap-2 text-sm">
+                <span>Explore Projects</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a href="#guides" className="button-secondary inline-flex items-center gap-2 text-sm">
+                <span>View Guides</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <p className="text-lg leading-relaxed text-muted-300 text-balance pt-2">
-            A personal sandbox for sharing learnings, experiments, and practical approaches 
-            to AI adoption in the public sector. 
-          </p>
-          <div className="pt-2 flex flex-wrap gap-3">
-            <a href="/projects" className="button-secondary inline-flex items-center gap-2 text-sm">
-              <span>Explore Projects</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a href="#guides" className="button-secondary inline-flex items-center gap-2 text-sm">
-              <span>View Guides</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </a>
+
+          <div className="w-full">
+            <figure className="card glow-accent rounded-3xl p-4">
+              <div className="aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+                <video
+                  className="h-full w-full object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={heroVideoSrc} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </figure>
           </div>
         </div>
 
