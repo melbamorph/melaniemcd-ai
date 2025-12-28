@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import ReflectivePrompt from '@/components/ReflectivePrompt';
+import HeroVideoEmbed from '@/components/HeroVideoEmbed';
 
 export default function HomePage() {
-  const heroVideoSrc = '/videos/hero.mp4';
-
   return (
     <div className="pt-4">
       <section className="space-y-10">
@@ -38,19 +37,7 @@ export default function HomePage() {
           </div>
 
           <div className="w-full">
-            <figure className="card glow-accent rounded-3xl p-4">
-              <div className="aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/30">
-                <video
-                  className="h-full w-full object-cover"
-                  controls
-                  playsInline
-                  preload="metadata"
-                >
-                  <source src={heroVideoSrc} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </figure>
+            <HeroVideoEmbed />
           </div>
         </div>
 
