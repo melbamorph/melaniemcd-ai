@@ -10,7 +10,10 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 export const metadata: Metadata = {
   title: 'Melanie McDonough | AI Experiments for Local Government',
   description:
-    'A personal innovation space for sharing AI experiments and learnings focused on local government and civic technology.'
+    'A personal innovation space for sharing AI experiments and learnings focused on local government and civic technology.',
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
