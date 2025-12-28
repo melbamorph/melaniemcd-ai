@@ -56,16 +56,17 @@ export default function HeroVideoEmbed() {
 
   return (
     <figure className="card glow-accent rounded-3xl p-4">
-      <div className="aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+      <div className="aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black">
         <iframe
           key={embedKey}
-          className="h-full w-full"
+          className="h-full w-full scale-[1.02] origin-center"
           src={HEYGEN_EMBED_URL}
           title="HeyGen video player"
           allow="encrypted-media; fullscreen;"
           allowFullScreen
           loading="lazy"
           frameBorder={0}
+          scrolling="no"
           onLoad={handleLoad}
           onError={handleError}
         />
